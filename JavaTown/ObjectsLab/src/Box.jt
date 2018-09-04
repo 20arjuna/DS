@@ -1,15 +1,25 @@
+// The Box Class is the blueprint for a box object which provides access
+// to stored values.
+//
+// @author Arjun Akkiraju
+// @version 9.4.18
 public class Box
 {
   private value;
+  // Initializes a box with a given value to be stored
+  // @param val    The value to be stored
   public Box(val)
   {
     value = val;
   }
+  // Provides Access to the value being stored by the Box class
+  // @return value  The value being stored by the Box class
   public getValue()
   {
-    
     return value;
   }
+  // Allows the value that the Box class is storing to be changed
+  // @param val     The value being stored by the Box class
   public setValue(val)
   {
     value = val;

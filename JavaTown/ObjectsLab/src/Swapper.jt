@@ -1,5 +1,12 @@
+// The Swapper Object swaps the numbers contained in two Container objects
+//
+// @author Arjun Akkiraju
+// @version 9.4.18
 public class Swapper
 {
+  // Swaps the numbers contained by the two Container object specified in the parameters
+  // @param c1      The first container
+  // @param c2      The second container
   public swap(c1, c2)
   {
     temp = c1.getStuff();

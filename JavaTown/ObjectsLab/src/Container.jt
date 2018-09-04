@@ -1,14 +1,25 @@
+// The container class stores a number within it and allows access to that
+// number to other classes.
+//
+// @author Arjun Akkiraju
+// @version 9.4.18
 public class Container
 {
   private stuff;
+  // Constructs a Container object with a given number
+  // @param s   The number which is stored in the Container
   public Container(s)
   {
     stuff = s;
   }
+  // Provides access to the number stored in the Container
+  // @return    The number which is stored in the Container
   public getStuff()
   {
     return stuff;
   }
+  // Changes the number stored in the Container
+  // @param s   The number to which the stored number should be changed to
   public setStuff(s)
   {
     stuff = s;

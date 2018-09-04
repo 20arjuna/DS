@@ -1,13 +1,25 @@
+// The Enumerator Class takes in a range of two numbers and (within that range)
+// decides if there is another number to be printed and returns it if necessary.
+//
+// @author Arjun Akkiraju
+// @version 9.4.18
 public class Enumerator
 {
   private num1;
   private num2;
+  // Constructs an Enumerator Object with two instance variables to establish the Enumerator's range
+  //@param n1     The first number
+  //@param n2     The second number
   public Enumerator(n1, n2)
   {
     num1 = n1-1;
     num2 = n2;
 
   }
+  // Returns whether or not, depending on the range of the Enumerator Object,
+  // the Enumerator can print another number.
+  // @return     true if the Enumerator can return another number; otherwise,
+                 false
   public hasNext()
   {
     if((num1+1) <= num2)
@@ -17,6 +29,9 @@ public class Enumerator
     }
     return false;
   }
+  // Returns the next number in the Enumerator, depending on whether or not the
+  // Enumerator object can print another number
+  // @return the next number the enumerator can return
   public next()
   {
     if(this.hasNext())
@@ -24,6 +39,6 @@ public class Enumerator
       num1 = num1 + 1;
       return num1;
     }
-    
+
   }
 }

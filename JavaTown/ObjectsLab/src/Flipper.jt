@@ -1,10 +1,21 @@
+// The Flipper Class creates a blueprint for an object which alternates
+// whether it returns true or false (It returns True if the number of calls to the class is odd)
+//
+// @author Arjun Akkiraju
+// @version 9.4.18
 public class Flipper
 {
   private count;
+  // Establishes a Flipper Object and keeps track of the number of calls
+  // to the Flipper object
   public Flipper()
   {
     count = 0;
   }
+  // Returns the next boolean value, depending on whether the number of the call to the
+  // Flipper object is even or odd
+  // @return    true if the number of the call to the Flipper object is odd; otherwise,
+                false
   public next()
   {
     count = count + 1;

@@ -1,18 +1,30 @@
+// The Counter class stores the number of time the Counter Ticks and provides
+// access to that number, while also possessing the ability to reset the amount
+// of Ticks.
+//
+// @author Arjun Akkiraju
+// @version 9.4.18
 public class Counter
 {
   private count;
+  // Constructs a Counter object with a stored value of ticks and sets
+  // that number to 0.
   public Counter()
   {
     count = 0;
   }
+  // Increments the amount of ticks which the Counter class is storing
   public tick()
   {
     count = count + 1; //Can't do count++;
   }
+  // Resets the amount of ticks which the Counter class is storing to 0
   public reset()
   {
     count = 0;
   }
+  // Allows access to the amount of ticks which the Counter class is storing
+  // @return the amount of ticks which the Counter class is storing
   public getCount()
   {
     return count;
