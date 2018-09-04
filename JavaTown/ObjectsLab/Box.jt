@@ -1,0 +1,17 @@
+public class Box
+{
+  private value;
+  public Box(val)
+  {
+    value = val;
+  }
+  public getValue()
+  {
+    
+    return value;
+  }
+  public setValue(val)
+  {
+    value = val;
+  }
+}

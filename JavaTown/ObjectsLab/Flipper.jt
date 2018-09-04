@@ -1,0 +1,13 @@
+public class Flipper
+{
+  private count;
+  public Flipper()
+  {
+    count = 0;
+  }
+  public next()
+  {
+    count = count + 1;
+    return (count %2) != 0;
+  }
+}

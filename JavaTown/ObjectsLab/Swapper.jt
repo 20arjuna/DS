@@ -1,0 +1,10 @@
+public class Swapper
+{
+  public swap(c1, c2)
+  {
+    temp = c1.getStuff();
+    c1.setStuff(c2.getStuff());
+    c2.setStuff(temp);
+
+  }
+}

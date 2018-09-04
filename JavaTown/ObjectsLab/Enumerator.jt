@@ -1,0 +1,29 @@
+public class Enumerator
+{
+  private num1;
+  private num2;
+  public Enumerator(n1, n2)
+  {
+    num1 = n1-1;
+    num2 = n2;
+
+  }
+  public hasNext()
+  {
+    if((num1+1) <= num2)
+    {
+
+      return true;
+    }
+    return false;
+  }
+  public next()
+  {
+    if(this.hasNext())
+    {
+      num1 = num1 + 1;
+      return num1;
+    }
+    
+  }
+}
