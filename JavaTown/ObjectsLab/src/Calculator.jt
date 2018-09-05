@@ -38,7 +38,7 @@ public class Calculator
 	// returns whether or not a given number is odd
 	// @param num		The number
 	// @return 			true if the number is odd; otherwise,
-									false
+	//							false
 	public isOdd(num)
 	{
 		return (num % 2) != 0;

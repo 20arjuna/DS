@@ -19,7 +19,7 @@ public class Enumerator
   // Returns whether or not, depending on the range of the Enumerator Object,
   // the Enumerator can print another number.
   // @return     true if the Enumerator can return another number; otherwise,
-                 false
+  //             false
   public hasNext()
   {
     if((num1+1) <= num2)

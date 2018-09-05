@@ -15,7 +15,7 @@ public class Flipper
   // Returns the next boolean value, depending on whether the number of the call to the
   // Flipper object is even or odd
   // @return    true if the number of the call to the Flipper object is odd; otherwise,
-                false
+  //            false
   public next()
   {
     count = count + 1;
