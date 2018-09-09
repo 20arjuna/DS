@@ -25,4 +25,35 @@ public class FancyCalc
     }
     return base * this.fastPow(base, exponent - 1);
   }
+  public gcd(num1, num2)
+  {
+    if(this.isBigger(num1, num2))
+    {
+      big = num1;
+      small = num2;
+      }
+      else if(this.isBigger(num2, num1))
+      {
+        big = num2;
+        small = num1;
+      }
+      else
+      {
+        return num1;
+      }
+      if(small ==0)
+      {
+        return big;
+      }
+      return (this.gcd(small, big%small));
+  }
+  private isBigger(num1, num2)
+  {
+    if(num1 > num2)
+    {
+      return true;
+    }
+    return false;
+
+  }
 }
