@@ -76,4 +76,16 @@ public class FancyCalc
     }
     return this.helpPrime(num, divisor + 1);
   }
+  public fact(n)
+  {
+    return this.factHelp(n, 1);
+  }
+  private factHelp(n, result)
+  {
+    if (n==0)
+    {
+      return result;
+    }
+    return this.factHelp(n-1, n * result);
+  }
 }
