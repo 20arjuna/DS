@@ -12,7 +12,7 @@ public class Counter
   public Counter()
   {
     count = 0;
-  }
+  } 
   // Increments the amount of ticks which the Counter class is storing
   public tick()
   {
