@@ -27,6 +27,10 @@ public class FancyCalc
   }
   public gcd(num1, num2)
   {
+    if(num1 <0 || num2 <0)
+    {
+      return "positive nums only please";
+    }
     if(this.isBigger(num1, num2))
     {
       big = num1;
@@ -55,5 +59,21 @@ public class FancyCalc
     }
     return false;
 
+  }
+  public isPrime(num)
+  {
+    return this.helpPrime(num, 2);
+  }
+  private helpPrime(num, divisor)
+  {
+    if (divisor == num)
+    {
+      return true;
+    }
+    if(num%divisor == 0)
+    {
+      return false;
+    }
+    return this.helpPrime(num, divisor + 1);
   }
 }
