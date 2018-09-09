@@ -8,4 +8,21 @@ public class FancyCalc
     }
     return base * this.pow(base, exponent - 1);
   }
+  private square(num)
+  {
+    return num * num;
+  }
+  public fastPow(base, exponent)
+  {
+    if (exponent == 0)
+    {
+      return 1;
+    }
+    if (exponent %2 ==0)
+    {
+      return this.square(
+                  this.fastPow(base, (exponent /2)));
+    }
+    return base * this.fastPow(base, exponent - 1);
+  }
 }
