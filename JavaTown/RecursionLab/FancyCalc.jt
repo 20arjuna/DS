@@ -20,7 +20,7 @@ public class FancyCalc
   // Computes the square of a given number
   // @param num   the number being squared
   // @return the square of the given number
-  private square(num)
+  public square(num)
   {
     return num * num;
   }
@@ -109,6 +109,10 @@ public class FancyCalc
     {
       return true;
     }
+    if (num ==1|| num < 0)
+    {
+      return false;
+    }
     if(num%divisor == 0)
     {
       return false;
@@ -139,11 +143,11 @@ public class FancyCalc
   // @param n   The index of the number specified in the fibonnaci series
   public fib(n)
   {
-    if(n <=1)
+    if(n <=2)
     {
       return 1;
     }
-    return this.fib(n-1) + this.fib(n-2);
+    return this.fib(n-2) + this.fib(n-1);
   }
   // Returns the approximate integer square root of a given number
   // @param num   The number being square rooted
