@@ -96,4 +96,34 @@ public class FancyCalc
     }
     return this.fib(n-1) + this.fib(n-2);
   }
+  public sqrt(num)
+  {
+    return this.findSqrt(num, 1);
+  }
+
+  private average(num1, num2)
+  {
+    return (num1 + num2) / 2;
+  }
+
+  private isDone(guess, numByGuess)
+  {
+    if(guess == numByGuess || numByGuess - 1 == guess)
+    {
+      return true;
+    }
+    return false;
+  }
+
+  private findSqrt(num, guess)
+  {
+    numByGuess = (num / guess);
+    if(this.isDone(guess, numByGuess))
+    {
+      return guess;
+    }
+    average = this.average(guess, numByGuess);
+    return this.findSqrt(num, average);
+  }
+
 }

@@ -5,9 +5,9 @@ public class RecursionEngine
 	{
 		if(n == 0)
 		{
-			return 1;
+			return 0;
 		}
-		return Math.pow(n,r) + sumGeometricSeries(n-1, r);
+		return Math.pow(r, n-1) + this.sumGeometricSeries(n-1, r);
 	}
 	
 }

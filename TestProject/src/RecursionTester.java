@@ -5,5 +5,6 @@ public class RecursionTester
 	{
 		RecursionEngine x = new RecursionEngine();
 		System.out.println(x.sumGeometricSeries(4, 2));
+		System.out.println(Math.pow(2, 4));
 	}
 }
