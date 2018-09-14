@@ -91,7 +91,7 @@ public class FancyCalc
   // Returns whether or not a number is prime
   // @param num     The number
   // @return true if the number is prime; otherwise,
-             false
+  //         false
   public isPrime(num)
   {
     return this.helpPrime(num, 2);
@@ -102,7 +102,7 @@ public class FancyCalc
   // @param num     The number
   // @param divisor The number which the above parameter will be divided by
   // @return true if the number is prime; otherwise,
-             false
+  //         false
   private helpPrime(num, divisor)
   {
     if (divisor == num)
@@ -163,9 +163,9 @@ public class FancyCalc
   // Determines whether or not the square root has been determined
   // @param guess         The most recent guess
   // @param numByGuess    The quotient of the number being square rooted and
-                          the most recent guess
+  //                      the most recent guess
   // @return true if numByGuess equals or is within 1 unit of the guess; otherwise,
-             false
+  //         false
   private isDone(guess, numByGuess)
   {
     if(guess == numByGuess || numByGuess - 1 == guess)
@@ -187,6 +187,10 @@ public class FancyCalc
     if(this.isDone(guess, numByGuess))
     {
       return guess;
+    }
+    if(numByGuess == this.average(guess, numByGuess))
+    {
+      return numByGuess;
     }
     average = this.average(guess, numByGuess);
     return this.findSqrt(num, average);

@@ -1,0 +1,39 @@
+// Towers of Hanoi Skeleton
+// Comment this class completely
+// Do not worry about the display
+// Just fill out the code as per our discussion in class.
+// Make sure to use other available methods in the class.
+public class Towers
+{
+	private numDiscs;
+
+	// Comment and Complete the constructor below
+	public Towers(num)
+	{
+		???
+	}
+
+	// Comment and Complete the method moveTower below
+	public moveTower(n, src, dest, temp)
+	{
+		if(n > 0)
+		{
+			???
+		}
+		else
+			return "Base Case! No discs to move";
+	}
+
+	// Comment the method moveDisc below
+	public moveDisc(src, dest)
+	{
+		return "moving 1 disc from " + src + " to " + dest;
+	}
+
+	
+	// Comment and Complete the method solve below
+	public solve()
+	{
+		this.moveTower(numDiscs, 1, 2, 3);
+	}
+}
