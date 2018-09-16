@@ -1,37 +1,54 @@
-// Towers of Hanoi Skeleton
-// Comment this class completely
-// Do not worry about the display
-// Just fill out the code as per our discussion in class.
-// Make sure to use other available methods in the class.
+// The Towers class simulates the Towers of Hanoi problem which is to move
+// all the discs on one pillar to another pillar without putting a smaller disc
+// on top of a larger disc. The discs are arranged from largest (bottom) to
+// smallest (top) and must be arranged like this on the destination pillar for
+// the problem to be complete.
+//
+// @author Arjun Akkiraju
+// @version 9.16.18
 public class Towers
 {
 	private numDiscs;
 
-	// Comment and Complete the constructor below
+	// Creates a Towers of Hanoi problem with a number of discs on the source pillar
+	// determined by the parameter passed in.
+	// @param num		The number of discs on the source pillar
 	public Towers(num)
 	{
-		???
+		numDiscs =  num;
 	}
 
-	// Comment and Complete the method moveTower below
-	public moveTower(n, src, dest, temp)
+	// Recursively moves the discs on one tower to another using a third tower
+	// as an auxiliary pillar
+	// @param n			The number of discs being moved
+	// @param src   The pillar which the discs are currently on
+	// @param temp  The auxiliary pillar
+	// @param dest  The pillar which the discs are to be moved to
+	// @return      A print statement that says "no discs to be moved" once
+	//							all the discs have been moved.
+	public moveTower(n, src, temp, dest)
 	{
 		if(n > 0)
 		{
-			???
+			this.moveTower(n-1, src, dest, temp);
+			this.moveDisc(src, dest);
+			this.moveTower(n-1, temp, src, dest);
 		}
 		else
 			return "Base Case! No discs to move";
 	}
 
-	// Comment the method moveDisc below
+	// Moves one disc from one pillar to another pillar
+	// @param src 		The pillar which currently holds the disc being moved
+	// @param src     The pillar which the disc is to be moved to
+	// @return 				A print statement confirming that 1 disc has been moved
+	// 								from the src pillar to the dest pillar
 	public moveDisc(src, dest)
 	{
 		return "moving 1 disc from " + src + " to " + dest;
 	}
 
-	
-	// Comment and Complete the method solve below
+	// Solves the Towers of Hanoi problem as the driver method for the class
 	public solve()
 	{
 		this.moveTower(numDiscs, 1, 2, 3);

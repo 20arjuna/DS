@@ -146,7 +146,6 @@ public class FancyCalc
     if(n <=2)
     {
       return 1;
-      
     }
     return this.fib(n-2) + this.fib(n-1);
   }
