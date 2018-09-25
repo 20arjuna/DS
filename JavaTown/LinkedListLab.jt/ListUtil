@@ -1,0 +1,38 @@
+public ListUtil
+{
+  public size (list)
+  {
+    if(list.getNext() == null)
+    {
+      return 0;
+    }
+    return 1 + this.size(list.getNext());
+  }
+  public createList(num, val)
+  {
+    if(num == 0)
+    {
+      list.setNext(null);
+    }
+    this.createList(num-1, val);
+  }
+  public sum (list)
+  {
+    if(list.getNext() == null)
+    {
+      return list.getValue();
+    }
+    return list.getValue() + this.sum(list.getNext());
+  }
+  public removeLast(list)
+  {
+    if(list.getNext().getNext() == null)
+    {
+      list.setNext(num);
+    }
+    else
+    {
+      list.removeLast(list.getNext());
+    }
+  }
+}
