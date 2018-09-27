@@ -1,0 +1,12 @@
+public class Memorizer
+{
+  public Memorizer()
+  {
+    util = new ListUtil();
+    list = null;
+  }
+  public seen(val)
+  {
+    
+  }
+}

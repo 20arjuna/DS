@@ -1,0 +1,215 @@
+// 
+// This file contains a test suite of commands that will 
+// test all your ListUtil methods
+// @author Ms. Datar with assistance from David Melisso
+// @version September 29, 2016
+//
+//
+// @Usage :  Create an object of this class using the following syntax
+// lt = new ListTester();
+// Then run the following commands one by one
+// done = lt.runTestPartI
+// done = lt.runTestPartII
+// done = lt.runTestPartIII
+// done = lt.runTestPartIV
+// Call me and show me the results after each of these.
+//
+public class ListTester
+{
+	private u;
+	private list;
+
+// Begin Testing
+public testSet1()
+{
+	list = null;
+	u = new ListUtil();
+
+	size = u.size(list);
+	if (size != 0)
+		return "failed1";
+	else
+		return "success1";
+	// Stop here and show your teacher your results
+}
+
+public testSet2()
+{
+ list = u.add(list, 7);
+ x = u.get(list,0);
+
+ if (x != 7)
+	return "failed2";
+
+list = new ListNode(5,
+          new ListNode(-6,
+          new ListNode(4,
+          new ListNode(2,null))));
+
+size = u.size(list);
+            if (size != 4)
+		return "failed2";
+
+x1 = u.get(list,1);
+	if (x1 != -6)
+		return "failed2";
+
+x3 = u.get(list,3);
+	if (x3 != 2)
+		return "failed2";
+
+return "success2";
+	// Stop here and show your teacher your results
+}
+
+public testSet3()
+{
+//list = u.add(list,-6);
+list = u.remove(list,5);
+list = u.remove(list,-6);
+list = u.remove(list,4);
+list = u.remove(list,2);
+list = u.remove(list,4);
+
+if (list != null)
+	return "failed3";
+
+return list;
+	// Stop here and show your teacher your results
+}
+
+public testSet4()
+{
+cute = u.makeList(3,"Cutie");
+
+return cute;
+	// Stop here and show your teacher your results
+}
+
+public testSet5()
+{
+	// Stop here and show your teacher your results
+	cute = null;
+	// Stop here and show your teacher your results
+	return cute;
+}
+
+public testSet6()
+{
+
+a = new Memorizer();
+b = new Memorizer();
+x = a.seen(7);
+
+if (x == true)
+	return "failed6";
+
+x = a.seen(15);
+if (x == true)
+	return "failed6";
+
+x = a.seen(7);
+if (x == false)
+	return "failed6";
+x = b.seen(7);
+if (x == true)
+	return "failed6";
+x = b.seen(7);
+if (x == false)
+	return "failed6";
+
+return "success6";
+	// Stop here and show your teacher your results
+}
+
+public testSet7()
+{
+	// Stop here and show your teacher your results
+a = null;
+b = null;
+	// Stop here and show your teacher your results
+
+return "success7";
+}
+
+public testSet8()
+{
+list = new ListNode(5,
+          new ListNode(-6,
+          new ListNode(4,
+          new ListNode(2,null))));
+
+list = u.reverse(list);
+
+return list;
+	// Stop here and show your teacher your results
+}
+
+public testSet9()
+{
+	// Stop here and show your teacher your results
+list = null;
+list = u.reverse (list);
+
+return list;
+	// Stop here and show your teacher your results
+}
+
+public testSet10()
+{
+list = u.add(list,12);
+list = u.reverse(list);
+
+return list;
+	// Stop here and show your teacher your results
+}
+
+public runTestPartI()
+{
+	result1 = this.testSet1();
+	result2 = this.testSet2();
+	// Stop here and show your teacher your results
+	list = this.testSet3();
+
+	done = "PART I SUCCESSFUL";
+	// Stop here and show your teacher your results
+	list = null;
+}
+
+public runTestPartII()
+{
+	cute = this.testSet4();
+	// Stop here and show your teacher your results
+	cute = this.testSet5();
+
+	cute = null;
+	u = null;
+
+	done = "PART II SUCCESSFUL";
+	// Stop here and show your teacher your results
+}
+
+public runTestPartIII()
+{
+	result6 = this.testSet6();
+	result7 = this.testSet7();
+
+	done = "PART III SUCCESSFUL";
+	// Stop here and show your teacher your results
+}
+
+public runTestPartIV()
+{
+	u = new ListUtil();
+
+	revL = this.testSet8();
+	// Stop here and show your teacher your results
+	revL = this.testSet9();
+	// Stop here and show your teacher your results
+	revL = this.testSet10();
+
+	done = "PART IV SUCCESSFULL";
+	// Stop here and show your teacher your results
+}
+
+}

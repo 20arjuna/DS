@@ -1,0 +1,65 @@
+public ListUtil
+{
+  public size (list)
+  {
+    if(list.getNext() == null)
+    {
+      return 0;
+    }
+    return 1 + this.size(list.getNext());
+  }
+  public makeList(num, val)
+  {
+    if(num == 0)
+    {
+      list.setNext(null);
+    }
+    this.makeList(num-1, val);
+  }
+  public sum (list)
+  {
+    if(list.getNext() == null)
+    {
+      return list.getValue();
+    }
+    return list.getValue() + this.sum(list.getNext());
+  }
+
+  public get(list, index)
+  {
+    if (index == 0)
+    {
+      return list.getValue();
+    }
+    return this.get(list.getNext(), index - 1);
+  }
+  public add(list, val)
+  {
+    if (list == null)
+    {
+      return newListNode(val, null);
+    }
+    list.setNext(this.add(list.getNext(), val));
+    return list;
+  }
+  public remove(list, val)
+  {
+    if (list == null)
+    {
+      return null;
+    }
+    //base case
+    if(list.getNext().getValue() == val)
+    {
+      list.setNext(list.getNext().getNext());
+    }
+    if(list.getNext().getNext() == null)
+    {
+      list.setNext(num);
+    }
+    else
+    {
+      list.removeLast(list.getNext());
+    }
+  }
+}

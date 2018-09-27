@@ -1,0 +1,27 @@
+public class ListNode
+{
+  private value;
+  private next;
+
+  public ListNode(initValue, initNext)
+  {
+    value = initValue;
+    next = initNext;
+  }
+  public getValue()
+  {
+    return value;
+  }
+  public getNext()
+  {
+    return next;
+  }
+  public setValue(theNewValue)
+  {
+    value = theNewValue;
+  }
+  public setNext(theNewNext)
+  {
+    next = theNewNext;
+  }
+}
