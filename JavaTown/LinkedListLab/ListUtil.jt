@@ -1,5 +1,13 @@
+// The ListUtil class is the driver class for LinkedList operations
+// such as adding and removing nodes and reversing the LinkedList
+//
+// @author Arjun Akkiraju
+// @version 9.26.18
 public ListUtil
 {
+  // Returns the size of the linked list
+  // @param list  The linked list
+  // @return      the size of the linked list
   public size (list)
   {
     if(list.getNext() == null)
@@ -8,6 +16,11 @@ public ListUtil
     }
     return 1 + this.size(list.getNext());
   }
+  // Creates a list with a given number of nodes, each with the
+  // same value.
+  //
+  // @param num   The number of nodes in the linked list
+  // @param val   The value of each the linked list nodes
   public makeList(num, val)
   {
     if(num == 0)
@@ -16,15 +29,11 @@ public ListUtil
     }
     this.makeList(num-1, val);
   }
-  public sum (list)
-  {
-    if(list.getNext() == null)
-    {
-      return list.getValue();
-    }
-    return list.getValue() + this.sum(list.getNext());
-  }
 
+  // Gets the value of the linked list at a certain node
+  // @param list      The linked list
+  // @param index     The index of the node whose value is returned
+  // @return          The value of the node at the given index
   public get(list, index)
   {
     if (index == 0)
@@ -33,6 +42,10 @@ public ListUtil
     }
     return this.get(list.getNext(), index - 1);
   }
+  // Adds a node to the end of the linked list.
+  // @param list      The linked list
+  // @param val       The value of the node being added.
+  // @return          The updated linked list.
   public add(list, val)
   {
     if (list == null)
@@ -42,6 +55,10 @@ public ListUtil
     list.setNext(this.add(list.getNext(), val));
     return list;
   }
+  // Removes all nodes with a certain value from the linked list.
+  // @param list      The linked list
+  // @param value     The value of the nodes which are to be removed.
+  // @return null     If the list is empty
   public remove(list, val)
   {
     if (list == null)
@@ -62,6 +79,11 @@ public ListUtil
       list.removeLast(list.getNext());
     }
   }
+  // Returns whether or not the list contains a node with a given value.
+  // @param list      The linked list
+  // @param value     The value of the node being checked
+  // @return          true if the linked list contains a node with the specified value; otherwise,
+                      false
   private contains(list, val)
   {
     if(list == null)
@@ -78,6 +100,9 @@ public ListUtil
     }
     return this.contains(list.getNext(), val);
   }
+  // Reverses the linked list.
+  // @param list      The linked list
+  // @return          The reversed linked list.
   public reverse(list)
   {
     currentVal = list.getValue();
