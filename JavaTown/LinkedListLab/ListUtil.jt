@@ -62,4 +62,20 @@ public ListUtil
       list.removeLast(list.getNext());
     }
   }
+  private contains(list, val)
+  {
+    if(list == null)
+    {
+      return false;
+    }
+    if(list.getValue() == val)
+    {
+      return true;
+    }
+    if(list.getNext() == null)
+    {
+      return false;
+    }
+    return this.contains(list.getNext(), val);
+  }
 }

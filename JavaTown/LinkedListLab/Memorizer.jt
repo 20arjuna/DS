@@ -7,6 +7,14 @@ public class Memorizer
   }
   public seen(val)
   {
-    
+    if(util.contains(list, val))
+    {
+      return true;
+    }
+    else
+    {
+      list = util.add(list, val);
+    }
   }
+
 }
