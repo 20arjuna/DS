@@ -78,4 +78,14 @@ public ListUtil
     }
     return this.contains(list.getNext(), val);
   }
+  public reverse(list)
+  {
+    currentVal = list.getValue();
+    currentNext = list.getNext();
+    if(this.size(list) == 1)
+    {
+      return list;
+    }
+    return this.reverse(this.removeLast(list)).add(currentVal, currentNext);
+  }
 }
