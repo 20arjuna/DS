@@ -1,10 +1,22 @@
+// The Memorizer class recognizes when it has seen a value before
+// using a linked list implemented recursively.
+//
+// @author Arjun Akkiraju
+// @version 9.26.18
 public class Memorizer
 {
+  // Creates the memorizer object with a ListUtil object and
+  // a linked list object.
   public Memorizer()
   {
     util = new ListUtil();
     list = null;
   }
+  // Recognizes whether or not the class has received a certain input
+  // before using a linked list.
+  // @param val     The value being inputed to the method.
+  // @return        true if the method has received the value of the parameter before; otherwise,
+                    false.
   public seen(val)
   {
     if(util.contains(list, val))
