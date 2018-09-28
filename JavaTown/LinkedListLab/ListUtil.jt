@@ -2,7 +2,7 @@
 // such as adding and removing nodes and reversing the LinkedList
 //
 // @author Arjun Akkiraju
-// @version 9.26.18
+// @version 9.27.18
 public class ListUtil
 {
   // Returns the size of the linked list
