@@ -1,25 +1,42 @@
+// The ListNode class is the blueprint for a list node for a linked list.
+// It contains a value and a pointer to the next node in the linked list.
+//
+// @author Arjun Akkiraju
+// @version 9.27.18
 public class ListNode
 {
   private value;
   private next;
 
+  // Constructs a ListNode object with an initial value and a pointer
+  // to another node in the linked list.
+  // @param initValue       The initial value of the node
+  // @param initNext        The initial node the ListNode is pointing to
   public ListNode(initValue, initNext)
   {
     value = initValue;
     next = initNext;
   }
+  // Gets the value of the current node.
+  // @return the value of the current node
   public getValue()
   {
     return value;
   }
+  // Gets the next node in the linked list.
+  // @return the next node in the linked list.
   public getNext()
   {
     return next;
   }
+  // Sets the value of the node to a given value.
+  // @param theNewValue     The new value
   public setValue(theNewValue)
   {
     value = theNewValue;
   }
+  // Sets the node which the current node is pointing to to a new node
+  // @param theNewNext      The node which is going to be set to the next node.
   public setNext(theNewNext)
   {
     next = theNewNext;
