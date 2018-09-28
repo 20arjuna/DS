@@ -5,11 +5,10 @@
 // @version 9.26.18
 public class Memorizer
 {
-  // Creates the memorizer object with a ListUtil object and
-  // a linked list object.
-
   private list;
   private util;
+  // Creates the memorizer object with a ListUtil object and
+  // a linked list object.
   public Memorizer()
   {
     util = new ListUtil();
