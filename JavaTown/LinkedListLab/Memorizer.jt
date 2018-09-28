@@ -7,6 +7,9 @@ public class Memorizer
 {
   // Creates the memorizer object with a ListUtil object and
   // a linked list object.
+
+  private list;
+  private util;
   public Memorizer()
   {
     util = new ListUtil();
@@ -16,17 +19,39 @@ public class Memorizer
   // before using a linked list.
   // @param val     The value being inputed to the method.
   // @return        true if the method has received the value of the parameter before; otherwise,
-                    false.
+  //                false.
   public seen(val)
   {
-    if(util.contains(list, val))
+    if(this.contains(list, val))
     {
       return true;
     }
     else
     {
       list = util.add(list, val);
+      return false;
     }
+  }
+  // Returns whether or not the list contains a node with a given value.
+  // @param list      The linked list
+  // @param value     The value of the node being checked
+  // @return          true if the linked list contains a node with the specified value; otherwise,
+  //                  false
+  private contains(list, val)
+  {
+    if(list == null)
+    {
+      return false;
+    }
+    if(list.getValue() == val)
+    {
+      return true;
+    }
+    if(list.getNext() == null)
+    {
+      return false;
+    }
+    return this.contains(list.getNext(), val);
   }
 
 }

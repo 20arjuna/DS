@@ -3,14 +3,14 @@
 //
 // @author Arjun Akkiraju
 // @version 9.26.18
-public ListUtil
+public class ListUtil
 {
   // Returns the size of the linked list
   // @param list  The linked list
   // @return      the size of the linked list
   public size (list)
   {
-    if(list.getNext() == null)
+    if(list == null)
     {
       return 0;
     }
@@ -25,8 +25,9 @@ public ListUtil
   {
     if(num == 0)
     {
-      list.setNext(null);
+      return null;
     }
+    return new ListNode(val, this.makeList(num-1, val));
     this.makeList(num-1, val);
   }
 
@@ -50,7 +51,7 @@ public ListUtil
   {
     if (list == null)
     {
-      return newListNode(val, null);
+      return new ListNode(val, null);
     }
     list.setNext(this.add(list.getNext(), val));
     return list;
@@ -66,51 +67,31 @@ public ListUtil
       return null;
     }
     //base case
-    if(list.getNext().getValue() == val)
-    {
-      list.setNext(list.getNext().getNext());
-    }
-    if(list.getNext().getNext() == null)
-    {
-      list.setNext(num);
-    }
-    else
-    {
-      list.removeLast(list.getNext());
-    }
-  }
-  // Returns whether or not the list contains a node with a given value.
-  // @param list      The linked list
-  // @param value     The value of the node being checked
-  // @return          true if the linked list contains a node with the specified value; otherwise,
-                      false
-  private contains(list, val)
-  {
-    if(list == null)
-    {
-      return false;
-    }
     if(list.getValue() == val)
     {
-      return true;
+      return this.remove(list.getNext(), val);
     }
-    if(list.getNext() == null)
-    {
-      return false;
-    }
-    return this.contains(list.getNext(), val);
+    list.setNext(this.remove(list.getNext(), val));
+    return list;
   }
+
   // Reverses the linked list.
   // @param list      The linked list
   // @return          The reversed linked list.
   public reverse(list)
   {
-    currentVal = list.getValue();
-    currentNext = list.getNext();
-    if(this.size(list) == 1)
+
+    if (list == null)
     {
-      return list;
+      return null;
     }
-    return this.reverse(this.removeLast(list)).add(currentVal, currentNext);
+    if(list.getNext() != null)
+    {
+      temp = this.reverse(list.getNext());
+      list.getNext().setNext(list);
+      list.setNext(null);
+      return temp;
+    }
+    return list;
   }
 }
