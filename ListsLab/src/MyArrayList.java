@@ -30,7 +30,8 @@ public class MyArrayList<E>
 	*/
 	private void doubleCapacity()
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
+		//throw new RuntimeException("INSERT MISSING CODE HERE");
+		
 	}
 
 	/**
