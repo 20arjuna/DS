@@ -30,8 +30,16 @@ public class MyArrayList<E>
 	*/
 	private void doubleCapacity()
 	{
-		//throw new RuntimeException("INSERT MISSING CODE HERE");
-		
+		Object [] temp = new Object [size];
+		for (int i = 0; i < values.length; i ++)
+		{
+			temp[i] = values[i];
+		}
+		values = new Object [size * 2];
+		for (int i = 0; i < temp.length; i++)
+		{
+			values[i] = temp[i];
+		}
 	}
 
 	/**
@@ -39,17 +47,17 @@ public class MyArrayList<E>
 	*/
 	public int getCapacity()
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
+		return values.length;
 	}
 
 	public int size()
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
+		return size;
 	}
 
 	public E get(int index)
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
+		return (E) values[index];
 
 		//(You will need to promise the return value is of type E.)
 	}
@@ -60,7 +68,8 @@ public class MyArrayList<E>
 	*/
 	public E set(int index, E obj)
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
+		values[index] = obj;
+		return this.get(index);
 
 		//(You will need to promise the return value is of type E.)
 	}
@@ -70,9 +79,12 @@ public class MyArrayList<E>
 	*/
 	public boolean add(E obj)
 	{
-		/* if values is already full, call doubleCapacity before adding */
-
-		throw new RuntimeException("INSERT MISSING CODE HERE");
+		if(this.getCapacity() == this.size())
+		{
+			this.doubleCapacity();
+		}
+		values[size] = obj;
+		return true;
 	}
 
 	/**
@@ -83,9 +95,12 @@ public class MyArrayList<E>
 	*/
 	public E remove(int index)
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
-
-		//(You will need to promise the return value is of type E.)
+		for(int i = index+1; i <=size; i++)
+		{
+			values[i-1] = values[i];
+		}
+		size--;
+		return this.get(index);
 	}
 
 	public Iterator<E> iterator()
@@ -101,7 +116,13 @@ public class MyArrayList<E>
 	*/
 	public void add(int index, E obj)
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
+		for(int i = index; i <size; i++)
+		{
+			values[i+1] = values[i];
+		}
+		values[index] = obj;
+		size++;
+		
 	}
 
 	private class MyArrayListIterator implements Iterator<E>
