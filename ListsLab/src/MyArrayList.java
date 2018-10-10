@@ -1,8 +1,6 @@
 import java.util.Iterator;
-import java.util.ListIterator;
 
-public class MyArrayList<E>
-{
+public class MyArrayList<E>{
 	private int size;
 	private Object[] values;  //(Java doesn't let us make an array of type E)
 
@@ -12,6 +10,7 @@ public class MyArrayList<E>
 		values = new Object[1];
 	}
 
+	@Override
 	public String toString()
 	{
 		if (size == 0)
@@ -68,8 +67,9 @@ public class MyArrayList<E>
 	*/
 	public E set(int index, E obj)
 	{
+		E temp = this.get(index);
 		values[index] = obj;
-		return this.get(index);
+		return temp;
 
 		//(You will need to promise the return value is of type E.)
 	}
@@ -84,6 +84,7 @@ public class MyArrayList<E>
 			this.doubleCapacity();
 		}
 		values[size] = obj;
+		size++;
 		return true;
 	}
 
@@ -95,12 +96,15 @@ public class MyArrayList<E>
 	*/
 	public E remove(int index)
 	{
-		for(int i = index+1; i <=size; i++)
+		E temp = this.get(index);
+		for(int i = index; i < size-1; i++)
 		{
-			values[i-1] = values[i];
+			values[i] = values[i+1];
+			values[i+1] = 0;
 		}
+		
 		size--;
-		return this.get(index);
+		return temp;
 	}
 
 	public Iterator<E> iterator()
@@ -128,29 +132,48 @@ public class MyArrayList<E>
 	private class MyArrayListIterator implements Iterator<E>
 	{
 		//the index of the value that will be returned by next()
+		
 		private int nextIndex;
-
 		public MyArrayListIterator()
 		{
-			throw new RuntimeException("INSERT MISSING CODE HERE");
+			nextIndex = 0;
 		}
 
+		@Override
 		public boolean hasNext()
 		{
-			throw new RuntimeException("INSERT MISSING CODE HERE");
+			if(nextIndex < size)
+			{
+				return true;
+			}
+			return false;
 		}
 
+		@Override
 		public E next()
 		{
-			throw new RuntimeException("INSERT MISSING CODE HERE");
+			int temp = nextIndex;
+			nextIndex++;
+			return (E) values[temp];
+			
+			
 
 			//(You will need to promise the return value is of type E.)
 		}
 
 		//@postcondition removes the last element that was returned by next
+		@Override
 		public void remove()
 		{
-			throw new RuntimeException("INSERT MISSING CODE HERE");
+			
+			for(int i = nextIndex-1; i < size-1; i++)
+			{
+				values[i] = values[i+1];
+				values[i+1] = 0;
+			}
+			
+			size--;
+			
 		}
 	}
 }
