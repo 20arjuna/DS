@@ -32,7 +32,8 @@ public class MyLinkedList<E>
 	* @precondition  0 <= index <= size / 2
 	* @postcondition starting from first, returns the node
 	*               with given index (where index 0
-	*/               returns first)
+	*                returns first)
+	*/              
 	private DoubleNode getNodeFromFirst(int index)
 	{
 		throw new RuntimeException("INSERT MISSING CODE HERE");
@@ -42,7 +43,8 @@ public class MyLinkedList<E>
 	* @precondition  size / 2 <= index < size
 	* @postcondition starting from last, returns the node
 	*               with given index (where index size-1
-	*/               returns last)
+	*               returns last)
+	*/               
 	private DoubleNode getNodeFromLast(int index)
 	{
 		throw new RuntimeException("INSERT MISSING CODE HERE");
@@ -52,7 +54,8 @@ public class MyLinkedList<E>
 	* @precondition  0 <= index < size
 	* @postcondition starting from first or last (whichever
 	*               is closer), returns the node with given
-	*/               index
+	*               index
+	*/               
 	private DoubleNode getNode(int index)
 	{
 		throw new RuntimeException("INSERT MISSING CODE HERE");
