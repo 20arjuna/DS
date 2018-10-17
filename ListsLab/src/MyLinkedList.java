@@ -1,6 +1,12 @@
 import java.util.Iterator;
 import java.util.ListIterator;
 
+/**
+ * MyLinkedList<E> is a blueprint 
+ * @author 20arjuna
+ *
+ * @param <E>
+ */
 public class MyLinkedList<E>
 {
 	private DoubleNode first;
@@ -36,7 +42,8 @@ public class MyLinkedList<E>
 	*/              
 	private DoubleNode getNodeFromFirst(int index)
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
+		//listNode.add(double.getX(y));
+	    throw new RuntimeException("INSERT MISSING CODE HERE");
 	}
 
 	/** 
