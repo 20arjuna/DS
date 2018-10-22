@@ -113,7 +113,10 @@ public class MyLinkedList<E>
 	*/
 	public boolean add(E obj)
 	{
-		
+	    size ++;
+		DoubleNode temp = last;
+		temp.getPrevious().setNext(new DoubleNode(obj));
+		return true;
 		
 	}
 
@@ -125,7 +128,18 @@ public class MyLinkedList<E>
 	*/
 	public E remove(int index)
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
+	    DoubleNode temp = this.getNode(index);
+		DoubleNode temp1 = this.getNode(index-1);
+	    DoubleNode temp2 = this.getNode(index+1);
+	    temp1.setNext(temp2);
+	    temp2.setPrevious(temp1);
+	    E val = (E) temp.getValue();
+	    temp.setNext(null);
+	    temp.setPrevious(null);
+	    size--;
+	    return val;
+	    
+
 
 		//(You will need to promise the return value is of type E.)
 	}
@@ -138,43 +152,49 @@ public class MyLinkedList<E>
 	*/
 	public void add(int index, E obj)
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
+		DoubleNode temp = this.getNode(index -1);
+		temp.setNext(new DoubleNode(obj));
+		temp.getNext().setPrevious(temp);
+		temp.getNext().getNext().setPrevious(temp.getNext());
+		temp.getNext().setNext(temp.getNext().getNext());
+		size++;
 	}
 
 	public void addFirst(E obj)
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
+	    size++;
+		first = new DoubleNode(obj);
 	}
 
 	public void addLast(E obj)
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
+	    this.add(obj);
 	}
 
 	public E getFirst()
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
-
-		//(You will need to promise the return value is of type E.)
+		return (E) first.getValue();
 	}
 
 	public E getLast()
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
+		return (E) last.getValue();
 
 		//(You will need to promise the return value is of type E.)
 	}
 
 	public E removeFirst()
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
-
+		E temp = this.getFirst();
+		first.setPrevious(first.getNext());
+		return temp;
 		//(You will need to promise the return value is of type E.)
 	}
 
 	public E removeLast()
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
+	    E temp = this.getFirst();
+		
 
 		//(You will need to promise the return value is of type E.)
 	}
