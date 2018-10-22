@@ -41,9 +41,14 @@ public class MyLinkedList<E>
 	*                returns first)
 	*/              
 	private DoubleNode getNodeFromFirst(int index)
-	{
-		//listNode.add(double.getX(y));
-	    throw new RuntimeException("INSERT MISSING CODE HERE");
+	{ 
+	    DoubleNode temp = first;
+	   for(int i = 0; i < index; i ++)
+	   {
+	       temp = temp.getNext();
+	   }
+	   return temp;
+	   
 	}
 
 	/** 
@@ -54,7 +59,12 @@ public class MyLinkedList<E>
 	*/               
 	private DoubleNode getNodeFromLast(int index)
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
+	    DoubleNode temp = first;
+	       for(int i = 0; i < index; i ++)
+	       {
+	           temp = temp.getPrevious();
+	       }
+	       return temp;
 	}
 
 	/** 
@@ -65,17 +75,22 @@ public class MyLinkedList<E>
 	*/               
 	private DoubleNode getNode(int index)
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
+		int half = size / 2;
+		if(index < half)
+		{
+		    return this.getNodeFromFirst(index);
+		}
+		return this.getNodeFromLast(index);
 	}
 
 	public int size()
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
+		return size;
 	}
 
 	public E get(int index)
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
+		return (E) this.getNode(index).getValue();
 
 		//(You will need to promise the return value is of type E.)
 	}
@@ -86,7 +101,9 @@ public class MyLinkedList<E>
 	*/
 	public E set(int index, E obj)
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
+		E temp = this.get(index);
+		this.getNode(index).setValue(obj);
+		return temp;
 
 		//(You will need to promise the return value is of type E.)
 	}
@@ -96,7 +113,8 @@ public class MyLinkedList<E>
 	*/
 	public boolean add(E obj)
 	{
-		throw new RuntimeException("INSERT MISSING CODE HERE");
+		
+		
 	}
 
 	/** 
