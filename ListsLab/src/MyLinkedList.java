@@ -164,6 +164,7 @@ public class MyLinkedList<E>
 	{
 	    size++;
 		first = new DoubleNode(obj);
+		
 	}
 
 	public void addLast(E obj)
@@ -193,7 +194,10 @@ public class MyLinkedList<E>
 
 	public E removeLast()
 	{
-	    E temp = this.getFirst();
+	    E val = this.getLast();
+	    DoubleNode temp = this.getNode(size - 2);
+	    temp.setNext(null);
+	    return val;
 		
 
 		//(You will need to promise the return value is of type E.)
@@ -210,25 +214,40 @@ public class MyLinkedList<E>
 
 		public MyLinkedListIterator()
 		{
-			throw new RuntimeException("INSERT MISSING CODE HERE");
+			nextNode = first;
 		}
 
 		public boolean hasNext()
 		{
-			throw new RuntimeException("INSERT MISSING CODE HERE");
+			if(nextNode.getNext()!=null)
+			{
+			    return true;
+			}
+			return false;
 		}
 
 		public E next()
 		{
-			throw new RuntimeException("INSERT MISSING CODE HERE");
+		    E temp = (E)nextNode.getValue();
+			nextNode = nextNode.getNext();
+			return temp;
 
-			//(You will need to promise the return value is of type E.)
 		}
 
 		//@postcondition removes the last element that was returned by next
 		public void remove()
 		{
-			throw new RuntimeException("INSERT MISSING CODE HERE");
+		   DoubleNode temp = nextNode.getPrevious();
+		   int index = 0;
+		   for(int i = 0; i < size; i ++)
+		   {
+		       if (getNode(i).equals(temp))
+		       {
+		           index = i;
+		       }
+		   }
+		   MyLinkedList.this.remove(index);
+		   
 		}
 	}
 }
