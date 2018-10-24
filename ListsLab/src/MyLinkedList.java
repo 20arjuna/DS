@@ -1,15 +1,14 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.ConcurrentModificationException;
 /**
- * The MyLinkedList class implements a linked list data structure
- * with nodes that can access the previous and next nodes. It 
- * includes several adding, removing, and setting functions for
- * MyLinkedList collections.
+ * The MyLinkedList class is the blueprint for a linked list data structure
+ * which stores data in a collection of nodes which holds a value and two references,
+ * one to the node after it, and one to the node before it. A MyLinkedList object is great
+ * for quickly inserting/deleting data held in the data structure.
  *
- * @param <E> the type of object that can be in the linked list
- * @author  Arun Sundaresan
- * @version  October 17, 2018
+ * @param <E> The type of object being stored in the MyLinkedList
+ * @author Arjun Akkiraju
+ * @version  10.24.18
  */
 public class MyLinkedList<E>
 {
@@ -19,7 +18,7 @@ public class MyLinkedList<E>
     private int size;
 
     /**
-     * Constructor for objects of the MyLinkedList class
+     * Constructs a MyLInkedList object
      */
     public MyLinkedList()
     {
@@ -29,10 +28,9 @@ public class MyLinkedList<E>
     }
 
     /**
-     * Builds a Strign with the values held in the Linked List
+     * Formats the MyLInkedList into a string in the format [object1, object2 ...]
      *
-     * @return  a String with the values of the Linked List in 
-     *          String form.
+     * @return  A formatted string with the values of the MyLinkedList arranged in order.
      */
     public String toString()
     {
@@ -49,15 +47,13 @@ public class MyLinkedList<E>
     }
 
     /**
-     * Gets the node at the specified position, starting from 
-     * the first node.
+     * Gets the node at the specified position by traversing from the first node
      *
-     * @param index the position whose node to retrieve
+     * @param index of the node in the MyLinkeList
      * @return the node at the specified position
      * @precondition  0 <= index <= size / 2
-     * @postcondition the node at the specified position is 
-     *                  returned, with the traversal starting 
-     *                  from the first node.
+     * @postcondition starting from first, returns the node
+    *                 with given index (where index = 0)
      */
     private DoubleNode getNodeFromFirst(int index)
     {
@@ -79,15 +75,13 @@ public class MyLinkedList<E>
     }
 
     /**
-     * Gets the node at the specified position, starting from 
-     * the first node.
+     * Gets the node at the specified position by traversing from the first node
      *
      * @param index the position whose node to retrieve
      * @return the node at the specified position
      * @precondition  0 <= index <= size / 2
-     * @postcondition the node at the specified position is 
-     *                  returned, with the traversal starting 
-     *                  from the first node.
+     * @postcondition starting from last, returns the node
+    *                 with given index (where index size-1
      */
     private DoubleNode getNodeFromLast(int index)
     {
@@ -105,19 +99,19 @@ public class MyLinkedList<E>
         {
             last2 = last.getPrevious();
         }
-        return last2 ;
+        return last2;
     }
 
     /**
-     * Retreives the node located at the specified position using
-     * helper methods
+     * Gets the node at the specified index by traversing either from the start of
+     * the MyLinkedList or the end depending on the position of the index relative
+     * to the MyLinkedList
      *
-     * @param index the position whose node to retreive
+     * @param index the position whose node to retrieve
      * @return the DoubleNode located at index
      * @precondition 0 <= index < size
-     * @postcondition starting from the beginning or the end 
-     *                  (whichever is closer), retrieves the node 
-     *                  at the given index
+     * @postcondition starting from first or last (whichever
+    *                 is closer), returns the node with given
      */
     private DoubleNode getNode(int index)
     {
@@ -137,9 +131,9 @@ public class MyLinkedList<E>
     }
 
     /**
-     * Retrieves the number of nodes in the Linked List
+     * Gets the number of values stored in the MyLinkedList
      *
-     * @return the number of nodes in the Linked List
+     * @return the number of values in the MyLinkedList
      */
     public int size()
     {
@@ -147,10 +141,10 @@ public class MyLinkedList<E>
     }
 
     /**
-     * Retreives the value of the node at the given index
+     * Gets the value of the node at the specified index
      *
-     * @param index whose node's value to return
-     * @return  the value of the node at the given index
+     * @param index where the node with the desired value is
+     * @return  the value of the node at the specified index
      */
     public E get(int index)
     {
@@ -158,8 +152,8 @@ public class MyLinkedList<E>
     }
 
     /**
-     * Sets the value of the element at the given index to the given
-     * value, and returns the value formerly at the modified element.
+     * Sets the value of the element at the specified index to the specified
+     * value and returns the value which formerly occupied the specified index.
      *
      * @param index the index whose node to modify
      * @param obj the new value of the node at the given index
@@ -187,13 +181,13 @@ public class MyLinkedList<E>
     }
 
     /**
-     * Appends a node with the specified value to the end of the list.
+     * Attaches a node storing the given object to the end of the MyLinkedList
      *
      * @param obj the value of the node to be added
      * @postcondition a node with the specified value is added to the
      *                  end of the list, increments the size, and 
      *                  returns true
-     * @return  true
+     * @return  true always
      */
     public boolean add(E obj)
     {
@@ -237,9 +231,9 @@ public class MyLinkedList<E>
     }
 
     /**
-     * Removes the node at the given index, shifts all nodes after 
-     * the given index one position to the left, and returns the value
-     * of the node removed.
+     * Removes the node at the specified index and shifts all nodes
+     * which have indices bigger than the specified index to the left by 1, while
+     * returning the value of the node being removed. 
      *
      * @param index the index of the node to be removed
      * @postcondition removes the node from the given index, shifts
@@ -260,14 +254,14 @@ public class MyLinkedList<E>
         }
         
         
-            DoubleNode temp = getNode(index);
+        DoubleNode temp = getNode(index);
             
         if (index == 0)
         {
             if (size == 1)
             {
-                    first = null;
-                    last = null;
+                first = null;
+                last = null;
             }
             else
             {
@@ -290,7 +284,7 @@ public class MyLinkedList<E>
     }
 
     /**
-     * Adds a node with the given value at the specified index
+     * Adds a node which stores the specified object to the MyLinkedList at the given index
      *
      * @param index the index to add a node at
      * @param obj the value of the node to be placed at the
@@ -360,8 +354,7 @@ public class MyLinkedList<E>
     }
 
     /**
-     * Adds an node with the specified value to the 
-     * beginning of the list
+     * Adds an node containing the specified object to the beginning of the MyLinkedList object
      *
      * @param obj the value of the node to be added to the list
      * @preconditions 0 <= index <= size
@@ -387,8 +380,7 @@ public class MyLinkedList<E>
     }
 
     /**
-     * Adds a node with the sepcified value to the end of
-     * the list.
+     * Adds a node which contains the specified object to the end of the MyLinkedList
      *
      * @param obj the value of the node to be added to the end
      * @preconditions 0 <= index <= size
@@ -397,24 +389,11 @@ public class MyLinkedList<E>
      */
     public void addLast(E obj)
     {
-        DoubleNode newNode = new DoubleNode(obj);
-        if (first == null || last == null)
-        {
-            first = newNode;
-            last = newNode;
-        }
-        else
-        {
-            last.setNext(newNode);
-            newNode.setNext(null);
-            newNode.setPrevious(last);
-            last = newNode;
-        }
-        size++;
+        this.add(obj);
     }
 
     /**
-     * Retrieves the value of the first node of the list.
+     * Returns the value of the first node of the MyLinkedList.
      *
      * @return the value of the first node of the list.
      */
@@ -424,7 +403,7 @@ public class MyLinkedList<E>
     }
 
     /**
-     * Retrieves the value of the last node of the list.
+     * Retrieves the value of the last node of the MyLinkedList.
      *
      * @return the value of the last node of the list.
      */
@@ -434,7 +413,7 @@ public class MyLinkedList<E>
     }
 
     /**
-     * Removes the first node of the list and returns its value
+     * Removes the first node of the MyLinkedList and returns the value of the node being removed.
      * @return the value of the removed node
      * @postconditions the list's first node should be removed, its
      *                  value should be returned, all other nodes should
@@ -447,12 +426,13 @@ public class MyLinkedList<E>
         {
             if (first.getNext() == null)
             {
-                DoubleNode oldFirst = first;
+                DoubleNode old = first;
                 first = null;
                 last = null;
                 size--;
-                return (E) oldFirst;
+                return (E) old;
             }
+               
             DoubleNode oldFirst = first;
             first = first.getNext();
             first.setPrevious(null);
@@ -466,7 +446,7 @@ public class MyLinkedList<E>
     }
 
     /**
-     * Removes the last node of the list and returns its value
+     * Removes the first node of the MyLinkedList and returns the value of the node being removed.
      * @return the value of the removed node
      * @postconditions the list's last node should be removed, its
      *                  value should be returned, the value of
@@ -478,16 +458,17 @@ public class MyLinkedList<E>
     {
         if (last == null)
         {
-            throw new NullPointerException();
+            return null;
         }
         else
         {
             size--;
-            Object lastNode = last.getValue();
+            E lastNode = (E) last.getValue();
             if (last.getPrevious() == null)
             {
                 last = null;
                 first = null;
+                
                 return (E) lastNode;
             }
             last = last.getPrevious();
@@ -507,11 +488,12 @@ public class MyLinkedList<E>
     }
 
     /**
-     * The MyLinkedListIterator class focuses on a mechanism
-     * to safely remove elements from MyLinkedList collections
+     * The MyLinkedListIterator class is a blueprint for an iterator which can
+     * Iterate through the MyLinkedList object efficiently and providing basic
+     * functions like adding and removing element from the MyLinkedList.
      *
-     * @author Arun Sundaresan
-     * @version October 17, 2018
+     * @author Arjun Akkiraju
+     * @version 10.24.18
      */
     private class MyLinkedListIterator implements Iterator<E>
     {
@@ -521,7 +503,7 @@ public class MyLinkedList<E>
         private String listDesc;
         
         /**
-         * Constructor for objects of class MyLinkedListIterator
+         * Constructs a MyLinkedListIterator object
          */
         public MyLinkedListIterator()
         {
@@ -531,12 +513,12 @@ public class MyLinkedList<E>
         }
 
         /**
-         * Determines if there are elements after the position
-         * of the iterator
+         * Determines if the MyLinkedList object that the MyLinkedListIterator is
+         * iterating through has another element behind the element that the
+         * MyLinkedListIterator is currently pointing to.
          *
-         * @return true if there are elements after the position
-         *              of the iterator; otherwise
-         *              false
+         * @return true if the MyLinkedList object has another element behind the index that the MyLinkedList iterator is pointing to; otherwise, 
+         *         false
          */
         public boolean hasNext()
         {
@@ -548,12 +530,11 @@ public class MyLinkedList<E>
         }
 
         /**
-         * Returns the value of the next node in the MyLinkedList
-         *
-         * @precondition  there must be more elements after
-         *                  the position of the iterator
-         *
-         * @return  the value of the next node in the MyLinkedList
+         *  Returns the element which is at the index behind the index that the
+         * MyLinkedListIterator is pointing to.
+         * 
+         * @return the element which is at the index behind the index that the
+         *         MyLinkedListIterator is pointing to.
          */
         public E next()
         {
@@ -570,18 +551,20 @@ public class MyLinkedList<E>
         }
 
         /**
-         * Removes the last element returned by a call to next()
-         *
-         * @precondition next() has been called
-         * @postcondition The last element that was returned by 
-         *                  next() was removed
+         * Removes the element returned by the next() method.
+         * 
+         * @postcondition removes the last element that was returned by next
          */
         public void remove()
         {
-            if (!nextCalled)
+            if (!this.nextCalled)
+            {
                 throw new IllegalStateException();
+            }
+                
             MyLinkedList.this.remove(nextIndex - 1);
             listDesc = MyLinkedList.this.toString();
+            
             nextCalled = false;
             nextIndex--;
         }
