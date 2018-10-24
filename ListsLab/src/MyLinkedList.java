@@ -306,10 +306,11 @@ public class MyLinkedList<E>
         {
             return;
         }
-        if (index < 0 || index >= size)
+        else if (!(index >=0 && index < size))
         {
             throw new IndexOutOfBoundsException();
-        }
+        }     
+        
         DoubleNode temp = new DoubleNode(obj);
         if (size == 0)
         {
@@ -323,8 +324,10 @@ public class MyLinkedList<E>
             {
                 first.setPrevious(temp);
                 temp.setNext(first);
+                
                 temp.setPrevious(null);
                 first = temp;
+                
                 size++;
             }
             else if (index == size)
@@ -345,8 +348,11 @@ public class MyLinkedList<E>
                 }
                 DoubleNode prevNode = node.getPrevious();
                 prevNode.setNext(temp);
+                
                 node.setPrevious(temp);
                 temp.setNext(node);
+                
+                
                 temp.setPrevious(prevNode);
                 size++;
             }
