@@ -98,6 +98,7 @@ public class MyLinkedList<E>
         while (i != 0)
         {
             last2 = last.getPrevious();
+            i--;
         }
         return last2;
     }
@@ -517,7 +518,8 @@ public class MyLinkedList<E>
          * iterating through has another element behind the element that the
          * MyLinkedListIterator is currently pointing to.
          *
-         * @return true if the MyLinkedList object has another element behind the index that the MyLinkedList iterator is pointing to; otherwise, 
+         * @return true if the MyLinkedList object has another element 
+         *         behind the index that the MyLinkedList iterator is pointing to; otherwise, 
          *         false
          */
         public boolean hasNext()
