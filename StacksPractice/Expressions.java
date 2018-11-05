@@ -14,12 +14,33 @@ public class Expressions
     // {, [ or ( are the only types of brackets allowed
     // @param   expression containing operands operators 
     //          and any of the 3 supportedbrackets
-    // @return  true is the parenthesis are balanced         
+    // @return  true if the parenthesis are balanced         
     //          false otherwise
     public static boolean matchParenthesis(String expression)
     {
-        // Write code here
-        return false;
+        Stack<String> s = new Stack<String>();
+        String openers = "{[(";
+        String closers = "}])";
+        for(int i = 0; i < expression.length(); i++)
+        {
+            if(openers.indexOf(expression.substring(i, i+1)) != -1)
+            {
+                System.out.println("Added opener to stack");
+               
+                //is an opener
+                s.push(expression.substring(i, i+1));
+            }
+            if(closers.indexOf(expression.substring(i, i+1)) != -1)
+            {
+                //is a closer
+                System.out.println("Detected Closer");
+                if(! (expression.substring(i, i+1).equals(s.pop())))
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
     // returns a string in postfix form 
     // if given an expression in infix form as a parameter
@@ -53,14 +74,14 @@ public class Expressions
     // Tester to check if infix to postfix and evaluate postfix work well
     public static void main(String[] args)
     {
-        String exp = "2 + 3 * 4";
+        /*String exp = "2 + 3 * 4";
         test(exp, 14);
 
         exp = "8 * 12 / 2";
         test(exp, 48);
 
         exp = "5 % 2 + 3 * 2 - 4 / 2";
-        test(exp, 5);   
+        test(exp, 5);   */
 
         // test balanced expressions
         testBalanced("{ 2 + 3 } * ( 4 + 3 )", true);
