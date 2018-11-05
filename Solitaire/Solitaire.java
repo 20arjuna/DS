@@ -17,8 +17,10 @@ public class Solitaire
 	{
 		foundations = new Stack[4];
 		piles = new Stack[7];
-
-		//INSERT CODE HERE
+		stock = new Stack();
+		waste = new Stack();
+		display = new SolitaireDisplay(this);
+		
 
 
 
