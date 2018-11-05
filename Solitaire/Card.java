@@ -25,7 +25,7 @@ public class Card
     }
     public boolean isFaceUp()
     {
-        
+        jflsda;fs
     }
     public void turnUp()
     {
