@@ -13,27 +13,31 @@ public class Card
     }
     public int getRank()
     {
-        
+        return rank;
     }
     public String getSuit()
     {
-        
+        return suit;
     }
     public boolean isRed()
     {
-        
+        if(suit.equals("d") || suit.equals("h"))
+        {
+            return true;
+        }
+        return false;
     }
     public boolean isFaceUp()
     {
-        jflsda;fs
+        return isFaceUp;
     }
     public void turnUp()
     {
-        
+        isFaceUp = true;
     }
     public void turnDown()
     {
-        
+        isFaceUp = false;
     }
     
 }
