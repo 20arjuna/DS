@@ -267,7 +267,7 @@ public class Card
                 return "cards\\\\kd.gif";
             }
         }
-        return "something";
+        throw new RuntimeException("invalid card");
     }
     
 }
