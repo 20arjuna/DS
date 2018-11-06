@@ -16,10 +16,13 @@ public class Solitaire
 	public Solitaire()
 	{
 		foundations = new Stack[4];
-		piles = new Stack[7];
+		
+		piles = deal();
+		
 		stock = createStock();
 		
 		waste = new Stack();
+		
 		display = new SolitaireDisplay(this);
 		
 	}
@@ -53,8 +56,8 @@ public class Solitaire
 	//               is empty
 	public Card getFoundationCard(int index)
 	{
-	   foundations[index] = new Stack();
-	   if(foundations[index].isEmpty())
+	   //foundations[index] = new Stack();
+	   if(foundations[index] == null)
 	   {
 	       return null;
 	   }
@@ -98,7 +101,22 @@ public class Solitaire
 	        s.push(temp1);
 	        System.out.println("pushing");
 	    }
+	    System.out.println("done");
 	    return s;
+	    
+	}
+	public Stack<Card>[] deal()
+	{
+	   Stack<Card>[] p = new Stack[7];
+	    for(int i =0; i < p.length; i++)
+	    {
+	        for(int j = 0; j < 7; j++)
+	        {
+	            p[i].push(stock.pop());
+	        }
+	        p[i].peek().turnUp();
+	    }
+	    return p;
 	    
 	}
 	//called when the stock is clicked
