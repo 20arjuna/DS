@@ -17,29 +17,34 @@ public class Solitaire
 	{
 		foundations = new Stack[4];
 		piles = new Stack[7];
-		stock = new Stack();
+		stock = createStock();
+		
 		waste = new Stack();
 		display = new SolitaireDisplay(this);
 		
-
-
-
-
-		display = new SolitaireDisplay(this);
 	}
+	
 
 	//returns the card on top of the stock,
 	//or null if the stock is empty
 	public Card getStockCard()
 	{
-		throw new RuntimeException("IMPLEMENT ME");
+	    if(stock.isEmpty())
+	    {
+	        return null;
+	    }
+		return stock.peek();
 	}
 
 	//returns the card on top of the waste,
 	//or null if the waste is empty
 	public Card getWasteCard()
 	{
-		throw new RuntimeException("IMPLEMENT ME");
+	    if(waste.isEmpty())
+	    {
+	        return null;
+	    }
+		return waste.peek();
 	}
 
 	//precondition:  0 <= index < 4
@@ -48,16 +53,54 @@ public class Solitaire
 	//               is empty
 	public Card getFoundationCard(int index)
 	{
-		throw new RuntimeException("IMPLEMENT ME");
+	   foundations[index] = new Stack();
+	   if(foundations[index].isEmpty())
+	   {
+	       return null;
+	   }
+	   return foundations[index].peek();
 	}
 
 	//precondition:  0 <= index < 7
 	//postcondition: returns a reference to the given pile
 	public Stack<Card> getPile(int index)
 	{
-		throw new RuntimeException("IMPLEMENT ME");
+	    return piles[index];
 	}
-
+	
+	public Stack<Card> createStock()
+	{
+	    ArrayList<Card> deck = new ArrayList<Card>();
+	    Stack<Card> s = new Stack();
+	    for(int i = 1; i <= 13; i++)
+	    {
+	        deck.add(new Card(i, "c"));
+	    }
+	    for(int i = 1; i <= 13; i++)
+        {
+            deck.add(new Card(i, "d"));
+        }
+	    for(int i = 1; i <= 13; i++)
+        {
+            deck.add(new Card(i, "h"));
+        }
+	    for(int i = 1; i <= 13; i++)
+        {
+            deck.add(new Card(i, "s"));
+        }
+	    
+	    while(deck.size()>0)
+	    {
+	        int rand = (int)(Math.random() * deck.size());
+	        System.out.println("random: " + rand + "size: " + deck.size());
+	        Card temp1 = deck.remove(rand);
+	        System.out.println("storing in temp");
+	        s.push(temp1);
+	        System.out.println("pushing");
+	    }
+	    return s;
+	    
+	}
 	//called when the stock is clicked
 	public void stockClicked()
 	{
@@ -73,7 +116,7 @@ public class Solitaire
 	}
 
 	//precondition:  0 <= index < 4
-	//called when given foundation is clicked
+	//called when given foundation is clicked 
 	public void foundationClicked(int index)
 	{
 		//IMPLEMENT ME
