@@ -8,7 +8,7 @@ public class Card
     public Card(int r, String s)
     {
         rank = r;
-        s = suit;
+        suit= s;
         isFaceUp = false;
     }
     public int getRank()

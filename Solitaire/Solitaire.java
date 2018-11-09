@@ -16,12 +16,24 @@ public class Solitaire
 	public Solitaire()
 	{
 		foundations = new Stack[4];
+		for(int i = 0; i < foundations.length; i++)
+		{
+		    foundations[i] = new Stack<Card>();
+		}
 		
-		piles = deal();
+		piles = new Stack[7];
+		for(int j = 0; j < piles.length; j++)
+        {
+            piles[j] = new Stack<Card>();
+        }
 		
-		stock = createStock();
+		stock = new Stack<Card>();
 		
 		waste = new Stack();
+		
+		
+		createStock();
+		deal();
 		
 		display = new SolitaireDisplay(this);
 		
@@ -57,7 +69,7 @@ public class Solitaire
 	public Card getFoundationCard(int index)
 	{
 	   //foundations[index] = new Stack();
-	   if(foundations[index] == null)
+	   if(foundations[index].isEmpty())
 	   {
 	       return null;
 	   }
@@ -71,7 +83,7 @@ public class Solitaire
 	    return piles[index];
 	}
 	
-	public Stack<Card> createStock()
+	private void createStock()
 	{
 	    ArrayList<Card> deck = new ArrayList<Card>();
 	    Stack<Card> s = new Stack();
@@ -95,28 +107,34 @@ public class Solitaire
 	    while(deck.size()>0)
 	    {
 	        int rand = (int)(Math.random() * deck.size());
-	        System.out.println("random: " + rand + "size: " + deck.size());
+	        
 	        Card temp1 = deck.remove(rand);
-	        System.out.println("storing in temp");
+	        
 	        s.push(temp1);
-	        System.out.println("pushing");
+	        
 	    }
 	    System.out.println("done");
-	    return s;
+	    stock = s;
 	    
 	}
-	public Stack<Card>[] deal()
+	private Stack<Card>[] deal()
 	{
-	   Stack<Card>[] p = new Stack[7];
-	    for(int i =0; i < p.length; i++)
+	   //Stack<Card>[] p = new Stack[7];
+	   
+	    for(int i =0; i < piles.length; i++)
 	    {
 	        for(int j = 0; j < 7; j++)
 	        {
-	            p[i].push(stock.pop());
+	           //System.out.println("in while");
+	            piles[i].push(stock.pop());
+	            System.out.println(piles[i]);
 	        }
-	        p[i].peek().turnUp();
+	            
+	        piles[i].peek().turnUp();
+	        
 	    }
-	    return p;
+	    System.out.println("done");
+	    return piles;
 	    
 	}
 	//called when the stock is clicked
