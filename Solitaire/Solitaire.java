@@ -298,6 +298,11 @@ public class Solitaire
             }
             display.unselect();
 		}
+		if(piles[index].peek().isFaceUp() == false)
+		{
+		    piles[index].peek().turnUp();
+		    display.unselect();
+		}
 		
 		    
 		
