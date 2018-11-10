@@ -114,7 +114,7 @@ public class Solitaire
 	        s.push(temp1);
 	        
 	    }
-	    System.out.println("done");
+	    
 	    stock = s;
 	    
 	}
@@ -135,7 +135,7 @@ public class Solitaire
 	        piles[i].peek().turnUp();
 	        
 	    }
-	    System.out.println("done");
+	   
 	    return piles;
 	    
 	}
@@ -145,11 +145,13 @@ public class Solitaire
 	    {
 	       if(stock.isEmpty())
 	       {
-	           return;
+	           return ;
 	       }
 	       waste.push(stock.pop());
 	       waste.peek().turnUp();
+	       
 	    }
+	   
 	}
 	private void resetStock()
 	{
@@ -162,8 +164,16 @@ public class Solitaire
 	//called when the stock is clicked
 	public void stockClicked()
 	{
-		//IMPLEMENT ME
-		System.out.println("stock clicked");
+		if(stock.isEmpty())
+		{
+		    resetStock();
+		}
+		else
+		{
+		    dealThreeCards();
+		}
+		
+		System.out.println("Cards left in the stock: " + stock.size());
 	}
 
 	//called when the waste is clicked
