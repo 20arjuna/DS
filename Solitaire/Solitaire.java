@@ -35,6 +35,7 @@ public class Solitaire
 		createStock();
 		deal();
 		dealThreeCards();
+		resetStock();
 		display = new SolitaireDisplay(this);
 		
 	}
@@ -148,6 +149,14 @@ public class Solitaire
 	       }
 	       waste.push(stock.pop());
 	       waste.peek().turnUp();
+	    }
+	}
+	private void resetStock()
+	{
+	    while(!waste.isEmpty())
+	    {
+	        stock.push(waste.pop());
+	        stock.peek().turnDown();
 	    }
 	}
 	//called when the stock is clicked
