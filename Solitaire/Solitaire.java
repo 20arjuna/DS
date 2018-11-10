@@ -256,6 +256,7 @@ public class Solitaire
 	    {
 	        display.selectPile(index);
 	        selected = display.selectedPile();
+	        System.out.println("Selected: " + selected);
 	    }
 	    
 	    if(pileSelected)
@@ -278,7 +279,23 @@ public class Solitaire
 		
 		if(selected != index)
 		{
-		    
+		    System.out.println("Selected: " + selected);
+		    System.out.println("index: " + index);
+		    Stack<Card> inTransit = removeFaceUpCards(selected);
+		    System.out.println("pile whcih is being removed: " + piles[index].toString());
+		    System.out.println("inTransit: " + inTransit.toString());
+            while(!inTransit.isEmpty())
+            {
+                if(this.canAddToPile(inTransit.peek(), index))
+                {
+                    piles[index].push(inTransit.pop());
+                }
+                else
+                {
+                    piles[selected].push(inTransit.pop());
+                }
+            }
+            display.unselect();
 		}
 		
 		    
