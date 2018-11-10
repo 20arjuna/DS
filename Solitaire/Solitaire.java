@@ -34,7 +34,7 @@ public class Solitaire
 		
 		createStock();
 		deal();
-		
+		dealThreeCards();
 		display = new SolitaireDisplay(this);
 		
 	}
@@ -120,22 +120,35 @@ public class Solitaire
 	private Stack<Card>[] deal()
 	{
 	   //Stack<Card>[] p = new Stack[7];
-	   
+	   int x = 1;
 	    for(int i =0; i < piles.length; i++)
 	    {
-	        for(int j = 0; j < 7; j++)
+	        for(int j = 0; j < x; j++)
 	        {
 	           //System.out.println("in while");
 	            piles[i].push(stock.pop());
-	            System.out.println(piles[i]);
+	           
+	           
 	        }
-	            
+	        x++;
 	        piles[i].peek().turnUp();
 	        
 	    }
 	    System.out.println("done");
 	    return piles;
 	    
+	}
+	private void dealThreeCards()
+	{
+	    for(int i=0; i < 3; i ++)
+	    {
+	       if(stock.isEmpty())
+	       {
+	           return;
+	       }
+	       waste.push(stock.pop());
+	       waste.peek().turnUp();
+	    }
 	}
 	//called when the stock is clicked
 	public void stockClicked()
