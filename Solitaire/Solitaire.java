@@ -225,6 +225,15 @@ public class Solitaire
 	//called when given pile is clicked
 	public void pileClicked(int index)
 	{
+	    boolean pileSelected = display.isPileSelected();
+	    if(!display.isPileSelected() && !display.isWasteSelected())
+	    {
+	        display.selectPile(index);
+	    }
+	    if(pileSelected)
+	    {
+	        display.unselect();
+	    }
 		if(display.isWasteSelected())
 		{
 		    if(canAddToPile(waste.peek(), index))
@@ -234,7 +243,7 @@ public class Solitaire
 		    }
 		    else
 		    {
-		        System.out.println("move not aloud");
+		        System.out.println("move not valid");
 		    }
 		    
 		}
