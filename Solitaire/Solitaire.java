@@ -251,7 +251,7 @@ public class Solitaire
 	public void pileClicked(int index)
 	{
 	    boolean pileSelected = display.isPileSelected();
-	    int selected = 0;
+	    int selected = display.selectedPile();
 	    if(!display.isPileSelected() && !display.isWasteSelected())
 	    {
 	        display.selectPile(index);
@@ -277,22 +277,23 @@ public class Solitaire
 		    
 		}
 		
-		if(selected != index)
+		if(selected != index && selected !=-1)
 		{
 		    System.out.println("Selected: " + selected);
 		    System.out.println("index: " + index);
 		    Stack<Card> inTransit = removeFaceUpCards(selected);
-		    System.out.println("pile whcih is being removed: " + piles[index].toString());
-		    System.out.println("inTransit: " + inTransit.toString());
+		    
             while(!inTransit.isEmpty())
             {
                 if(this.canAddToPile(inTransit.peek(), index))
                 {
-                    piles[index].push(inTransit.pop());
+                   
+                    addToPile(inTransit, index);
                 }
                 else
                 {
-                    piles[selected].push(inTransit.pop());
+                    addToPile(inTransit, selected);
+                    //piles[selected].push(inTransit.pop());
                 }
             }
             display.unselect();
