@@ -201,6 +201,30 @@ public class Solitaire
 	        piles[index].push(cards.pop());
 	    }
 	}
+	
+	//precondition:  0 <= index < 4
+	//postcondition: Returns true if the given card can be
+	//               legally moved to the top of the given
+	//               foundation
+    private boolean canAddToFoundation(Card card, int index)
+    {
+        if(foundations[index].isEmpty() && card.getRank() == 1)
+        {
+            return true;
+        }
+        String topSuit = foundations[index].peek().getSuit();
+        int topRank = foundations[index].peek().getRank();
+        
+        String cardSuit = card.getSuit();
+        int cardRank = card.getRank();        
+        if((topRank - cardRank) == 1 && topSuit.equals(cardSuit))
+        {
+            return true;
+        }
+        return false;
+        
+    }
+    
 	//called when the stock is clicked
 	public void stockClicked()
 	{
@@ -242,7 +266,22 @@ public class Solitaire
 	//called when given foundation is clicked 
 	public void foundationClicked(int index)
 	{
-		//IMPLEMENT ME
+	    Card card = null;
+	    if(display.isPileSelected())
+	    {
+	        card = piles[display.selectedPile()].peek();
+	        if(canAddToFoundation(card, index))
+	        {
+	            foundations[index].push(piles[display.selectedPile()].pop());
+	        }
+	    }
+	    else if(display.isWasteSelected())
+	    {
+	        card = waste.peek();
+	        foundations[index].push(waste.pop());
+	    }
+	    display.unselect();
+		
 		System.out.println("foundation #" + index + " clicked");
 	}
 
