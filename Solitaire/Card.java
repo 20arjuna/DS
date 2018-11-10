@@ -1,24 +1,51 @@
-
+/**
+ * The Card class is a blueprint for a card which is used in the game
+ * of Solitaire. A card has a rank (1-13), a suit (club, spade, heart, diamond),
+ * and can be turned up or turned down. 
+ * 
+ * @author 20arjuna
+ * @version 11.9.18
+ *
+ */
 public class Card
 {
     private int rank;
     private String suit;
     private boolean isFaceUp;
     
+    /**
+     * Creates a card object
+     * 
+     * @param r the rank of the card
+     * @param s the suit of the card
+     */
     public Card(int r, String s)
     {
         rank = r;
         suit= s;
         isFaceUp = false;
     }
+    /**
+     * Returns the rank of the card 
+     * @return the rank of the card
+     */
     public int getRank()
     {
         return rank;
     }
+    /**
+     * Returns the suit of the card
+     * @return the suit of the card
+     */
     public String getSuit()
     {
         return suit;
     }
+    /**
+     * Returns whether or not the card is red
+     * @return true if the card is red; otherwise,
+     *         false.
+     */
     public boolean isRed()
     {
         if(suit.equals("d") || suit.equals("h"))
@@ -27,18 +54,33 @@ public class Card
         }
         return false;
     }
+    /**
+     * Returns whether or not the card is faced up
+     * @return true if the card is faced up; otherwise,
+     *         false.
+     */
     public boolean isFaceUp()
     {
         return isFaceUp;
     }
+    /**
+     * Turns the card up.
+     */
     public void turnUp()
     {
         isFaceUp = true;
     }
+    /**
+     * Turns the card down.
+     */
     public void turnDown()
     {
         isFaceUp = false;
     }
+    /**
+     * Retrieves the path of the card on Arjun Akkiraju's macbook pro
+     * @return the path of the card on Arjun Akkiraju's macbook pro
+     */
     public String getFileName()
     {
         if(!this.isFaceUp())
@@ -267,7 +309,7 @@ public class Card
                 return "/Users/20arjuna/Desktop/DS/Solitaire/cards/kd.gif";
             }
         }
-        throw new RuntimeException("invalid card");
+        return null;
     }
     
 }
