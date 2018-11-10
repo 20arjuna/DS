@@ -176,6 +176,31 @@ public class Solitaire
 	    
 	    
 	}
+	 //precondition:  0 <= index < 7
+	   //postcondition: Removes all face-up cards on the top of
+	   //               the given pile; returns a stack
+	   //               containing these cards
+	private Stack<Card> removeFaceUpCards(int index)
+    {
+	     
+	     Stack<Card> allUp = new Stack<Card>();
+	     if(piles[index].peek().isFaceUp())
+	     {
+	         allUp.push(piles[index].pop());
+	     }
+	     return allUp;
+	}
+	//precondition:  0 <= index < 7
+	//postcondition: Removes elements from cards, and adds
+	//               them to the given pile.
+	private void addToPile(Stack<Card> cards, int index) 
+	{
+	    
+	    while(!cards.isEmpty())
+	    {
+	        piles[index].push(cards.pop());
+	    }
+	}
 	//called when the stock is clicked
 	public void stockClicked()
 	{
@@ -226,10 +251,12 @@ public class Solitaire
 	public void pileClicked(int index)
 	{
 	    boolean pileSelected = display.isPileSelected();
+	    
 	    if(!display.isPileSelected() && !display.isWasteSelected())
 	    {
 	        display.selectPile(index);
 	    }
+	    System.out.println(pileSelected);
 	    if(pileSelected)
 	    {
 	        display.unselect();
@@ -247,6 +274,35 @@ public class Solitaire
 		    }
 		    
 		}
+		if(pileSelected)
+		{
+		    
+		    int selected = display.selectedPile();
+		    System.out.println("index:"+ index);
+		    while(true)
+		    {
+		        System.out.println("selected:"+ selected);
+		    }
+		    
+		    
+		    /*
+		    Stack<Card> inTransit = removeFaceUpCards(selected);
+		    while(!inTransit.isEmpty())
+		    {
+		        if(this.canAddToPile(inTransit.peek(), index))
+		        {
+		            piles[index].push(inTransit.pop());
+		        }
+		        else
+		        {
+		            piles[selected].push(inTransit.pop());
+		        }
+		    }
+		    display.unselect();*/
+		}
+		
+		    
+		
 		//System.out.println("pile #" + index + " clicked");
 	}
 }
