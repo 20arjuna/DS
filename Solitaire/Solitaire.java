@@ -1,18 +1,38 @@
 import java.util.*;
-
+/**
+ * The Solitaire class is a blueprint for the solitaire game, a one player card
+ * game which consists of 4 important piles, the stock, the waste, the foundations,
+ * and the piles. The object of the game is to fill the foundations with all the 
+ * playing cards. Cards are distributed across the 7 piles with each subsequent pile
+ * containing one more card than the pile to its left. The first card in the pile is face
+ * up while the others are face down. From the piles, players must distribute all the cards
+ * to the foundations by utilizing cards from both the stock, and the waste.
+ * 
+ * @author 20arjuna
+ * @version 11.9.18
+ */
 public class Solitaire
 {
-	public static void main(String[] args)
+    /**
+     * Oversees the running of the solitaire game
+     * @param args Arguments from the command line
+     */
+    public static void main(String[] args)
 	{
 		new Solitaire();
 	}
-
+    
 	private Stack<Card> stock;
 	private Stack<Card> waste;
 	private Stack<Card>[] foundations;
 	private Stack<Card>[] piles;
 	private SolitaireDisplay display;
 
+	/**
+	 * Constructs a new solitaire game by creating the foundations,
+	 * waste, piles, and the stock. Also sets up the display and deals
+	 * cards and resets the stock to start the game. 
+	 */
 	public Solitaire()
 	{
 		foundations = new Stack[4];
@@ -40,9 +60,11 @@ public class Solitaire
 		
 	}
 	
-
-	//returns the card on top of the stock,
-	//or null if the stock is empty
+	/**
+	 * Gets the card on top of the stock 
+	 * @return the card on top of the stock, or null if 
+	 *         the stock is empty. 
+	 */
 	public Card getStockCard()
 	{
 	    if(stock.isEmpty())
@@ -51,9 +73,11 @@ public class Solitaire
 	    }
 		return stock.peek();
 	}
-
-	//returns the card on top of the waste,
-	//or null if the waste is empty
+	/**
+	 * Gets the card on top of the waste
+	 * @return the card on top of the waste, or null if
+	 *         the waste is empty
+	 */
 	public Card getWasteCard()
 	{
 	    if(waste.isEmpty())
@@ -62,28 +86,40 @@ public class Solitaire
 	    }
 		return waste.peek();
 	}
-
-	//precondition:  0 <= index < 4
-	//postcondition: returns the card on top of the given
-	//               foundation, or null if the foundation
-	//               is empty
+	/**
+	 * Gets the card on top of the foundation at the specified index
+	 * 
+	 * @param index the index of the foundation from which the card on top is returned
+	 * @return the card on top of the given foundation, or null if the foundation is empty
+	 * @precondition:  0 <= index < 4
+     * @postcondition: returns the card on top of the given
+     *                 foundation, or null if the foundation
+     *                 is empty
+	 */
 	public Card getFoundationCard(int index)
 	{
-	   //foundations[index] = new Stack();
 	   if(foundations[index].isEmpty())
 	   {
 	       return null;
 	   }
 	   return foundations[index].peek();
 	}
-
-	//precondition:  0 <= index < 7
-	//postcondition: returns a reference to the given pile
+	/**
+	 * Gets the reference to the specified pile
+	 * @param index The index of the pile whose reference is to be returned
+	 * @return a reference to the given pile
+	 * 
+	 * @precondition:  0 <= index < 7
+     * @postcondition: returns a reference to the given pile
+	 */
 	public Stack<Card> getPile(int index)
 	{
 	    return piles[index];
 	}
-	
+	/**
+	 * Creates the stock by dealing all 52 cards from the deck and 
+	 * shuffling the cards in a random order. 
+	 */
 	private void createStock()
 	{
 	    ArrayList<Card> deck = new ArrayList<Card>();
@@ -118,7 +154,12 @@ public class Solitaire
 	    stock = s;
 	    
 	}
-	private Stack<Card>[] deal()
+	/**
+	 * Deals the shuffled cards from the stock to the 7 piles with the first
+	 * pile having 1 card, the second pile having 2 cards, etc until the last pile
+	 * has 7 cards.  
+	 */
+	private void deal()
 	{
 	   //Stack<Card>[] p = new Stack[7];
 	   int x = 1;
@@ -134,11 +175,13 @@ public class Solitaire
 	        x++;
 	        piles[i].peek().turnUp();
 	        
-	    }
-	   
-	    return piles;
-	    
+	    } 
 	}
+	/**
+	 * Deals three cards from the stock to the waste. If the stock has
+	 * less than three cards remaining, all the cards on the stock are 
+	 * added to the waste.
+	 */
 	private void dealThreeCards()
 	{
 	    for(int i=0; i < 3; i ++)
@@ -153,6 +196,10 @@ public class Solitaire
 	    }
 	   
 	}
+	/**
+	 * Resets the stock by adding all the cards from the
+	 * waste back to the stock. 
+	 */
 	private void resetStock()
 	{
 	    while(!waste.isEmpty())
@@ -161,6 +208,20 @@ public class Solitaire
 	        stock.peek().turnDown();
 	    }
 	}
+	/**
+	 * Determines whether or not it is possible to add the specified
+	 * card to the pile at the specified index based on the rules of 
+	 * solitaire. These rules are that only Kings can be added to an empty
+	 * pile, a card with the opposite color of the top card on the specified pile
+	 * and a rank which is one less than the rank of the top card can be added to the
+	 * pile at the specified index, and that no card can be placed on a pile wit its 
+	 * top card facing down.  
+	 * 
+	 * @param card The card in question.
+	 * @param index The index of the pile which the card wants to be added. 
+	 * @return true if the specified card can be added to the pile at the 
+	 *         given index, otherwise, false
+	 */
 	private boolean canAddToPile(Card card, int index)
 	{
 	    if(piles[index].isEmpty() && card.getRank() == 13)
@@ -176,10 +237,16 @@ public class Solitaire
 	    
 	    
 	}
-	 //precondition:  0 <= index < 7
-	   //postcondition: Removes all face-up cards on the top of
-	   //               the given pile; returns a stack
-	   //               containing these cards
+	/**
+	 * Removes all the face up cards on the top of the given pile.
+	 * 
+	 * @param index The pile which the face up cards are being removed
+	 * @return A stack containing the face up cards.
+	 * @precondition 0 <= index < 7
+	 * @postcondition: Removes all face-up cards on the top of
+     *                 the given pile; returns a stack
+     *                 containing these cards
+	 */
 	private Stack<Card> removeFaceUpCards(int index)
     {
 	     
@@ -190,9 +257,16 @@ public class Solitaire
 	     }
 	     return allUp;
 	}
-	//precondition:  0 <= index < 7
-	//postcondition: Removes elements from cards, and adds
-	//               them to the given pile.
+	/**
+	 * Adds the specified stack of cards to the pile at the specified index.
+	 * 
+	 * @param cards The stack of cards which is being added at the specified index.
+	 * @param index The index of the pile which the addition is taking place.
+	 * @precondition:  0 <= index < 7
+     * @postcondition: Removes elements from cards, and adds
+     *              them to the given pile.
+	 */
+	
 	private void addToPile(Stack<Card> cards, int index) 
 	{
 	    
@@ -202,10 +276,22 @@ public class Solitaire
 	    }
 	}
 	
-	//precondition:  0 <= index < 4
-	//postcondition: Returns true if the given card can be
-	//               legally moved to the top of the given
-	//               foundation
+	/** 
+	 * Determines whether or not the specified card can be added to the foundation
+	 * at the specified index based on the rules of solitaire. The rules are that only aces
+	 * can be added to the foundation if the foundation is empty, and that cards placed on top
+	 * of a foundation must be of the same suit and must have a rank one higher than the rank of
+	 * the card previously on top of the foundation.
+	 * 
+	 * @param card
+	 * @param index
+	 * @return true if the specified card can be added to the pile at the
+	 *         given index; otherwise, false.
+     * @precondition:  0 <= index < 4
+     * @postcondition: Returns true if the given card can be
+     *                 legally moved to the top of the given
+     *                 foundation
+	 */
     private boolean canAddToFoundation(Card card, int index)
     {
         if(foundations[index].isEmpty() && card.getRank() == 1)
@@ -224,8 +310,10 @@ public class Solitaire
         return false;
         
     }
-    
-	//called when the stock is clicked
+    /**
+     * Deals three cards or resets depending on the number of cards
+     * currently in the stock when the stock is clicked. 
+     */
 	public void stockClicked()
 	{
 	    if(!display.isWasteSelected() && !display.isPileSelected())
@@ -244,7 +332,10 @@ public class Solitaire
 		
 	}
 
-	//called when the waste is clicked
+	/**
+	 * Selects the waste when the waste is clicked for the first time and then unselects
+	 * it after it has already been selected. 
+	 */
 	public void wasteClicked()
 	{
 	    boolean wasteSelected = display.isWasteSelected();
@@ -262,8 +353,13 @@ public class Solitaire
 		
 	    
 	}
-	//precondition:  0 <= index < 4
-	//called when given foundation is clicked 
+	
+	/**
+	 * Selects the foundation if nothing else is selected. If something else is selected,
+	 * that card is added to the foundation if it passes the solitaire rules for adding to 
+	 * the foundations. 
+	 * @param index
+	 */
 	public void foundationClicked(int index)
 	{
 	    Card card = null;
@@ -285,8 +381,16 @@ public class Solitaire
 		System.out.println("foundation #" + index + " clicked");
 	}
 
-	//precondition:  0 <= index < 7
-	//called when given pile is clicked
+	/**
+	 * Selects the pile at the specified index if nothing else is selected. 
+	 * If this is not the case then the selected card will attempt to transfer
+	 * to the pile at the specified index based on the solitaire rules. 
+	 * 
+	 * @param index The index of the pile where the action is being performed
+	 * @precondition:  0 <= index < 7
+     * @called when given pile is clicked
+	 */
+	
 	public void pileClicked(int index)
 	{
 	    boolean pileSelected = display.isPileSelected();
@@ -332,7 +436,7 @@ public class Solitaire
                 else
                 {
                     addToPile(inTransit, selected);
-                    //piles[selected].push(inTransit.pop());
+                    
                 }
             }
             display.unselect();
@@ -345,6 +449,6 @@ public class Solitaire
 		
 		    
 		
-		//System.out.println("pile #" + index + " clicked");
+		
 	}
 }

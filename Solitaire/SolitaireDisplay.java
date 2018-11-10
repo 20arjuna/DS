@@ -22,7 +22,7 @@ public class SolitaireDisplay extends JComponent implements MouseListener
 		this.game = game;
 
 		frame = new JFrame("Solitaire");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.getContentPane().add(this);
 
 		this.setPreferredSize(new Dimension(CARD_WIDTH * 7 + SPACING * 8, CARD_HEIGHT * 2 + SPACING * 3 + FACE_DOWN_OFFSET * 7 + 13 * FACE_UP_OFFSET));
@@ -32,7 +32,8 @@ public class SolitaireDisplay extends JComponent implements MouseListener
 		frame.setVisible(true);
 	}
 
-	public void paintComponent(Graphics g)
+	@Override
+    public void paintComponent(Graphics g)
 	{
 		//background
 		g.setColor(new Color(0, 128, 0));
@@ -86,23 +87,28 @@ public class SolitaireDisplay extends JComponent implements MouseListener
 		}
 	}
 
-	public void mouseExited(MouseEvent e)
+	@Override
+    public void mouseExited(MouseEvent e)
 	{
 	}
 
-	public void mouseEntered(MouseEvent e)
+	@Override
+    public void mouseEntered(MouseEvent e)
 	{
 	}
 
-	public void mouseReleased(MouseEvent e)
+	@Override
+    public void mouseReleased(MouseEvent e)
 	{
 	}
 
-	public void mousePressed(MouseEvent e)
+	@Override
+    public void mousePressed(MouseEvent e)
 	{
 	}
 
-	public void mouseClicked(MouseEvent e)
+	@Override
+    public void mouseClicked(MouseEvent e)
 	{
 		//none selected previously
 		int col = e.getX() / (SPACING + CARD_WIDTH);
