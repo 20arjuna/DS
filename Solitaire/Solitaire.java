@@ -195,7 +195,7 @@ public class Solitaire
 		    display.unselect();
 		}
 		
-		System.out.println("waste clicked");
+		
 	    
 	}
 	//precondition:  0 <= index < 4
@@ -210,7 +210,11 @@ public class Solitaire
 	//called when given pile is clicked
 	public void pileClicked(int index)
 	{
-		//IMPLEMENT ME
+		if(display.isWasteSelected())
+		{
+		    piles[index].push(waste.pop());
+		    display.unselect();
+		}
 		System.out.println("pile #" + index + " clicked");
 	}
 }
