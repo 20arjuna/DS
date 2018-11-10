@@ -164,25 +164,40 @@ public class Solitaire
 	//called when the stock is clicked
 	public void stockClicked()
 	{
-		if(stock.isEmpty())
-		{
-		    resetStock();
-		}
-		else
-		{
-		    dealThreeCards();
-		}
+	    if(!display.isWasteSelected() && !display.isPileSelected())
+	    {
+	        if(stock.isEmpty())
+	        {
+	            resetStock();
+	        }
+	        else
+	        {
+	            dealThreeCards();
+	        }
+	        
+	        System.out.println("Cards left in the stock: " + stock.size());
+	    }
 		
-		System.out.println("Cards left in the stock: " + stock.size());
 	}
 
 	//called when the waste is clicked
 	public void wasteClicked()
 	{
-		//IMPLEMENT ME
+	    boolean wasteSelected = display.isWasteSelected();
+		if(!waste.isEmpty() && (!display.isWasteSelected() && !display.isPileSelected()))
+		{
+		    
+		    display.selectWaste();
+		}
+		if(wasteSelected)
+		{
+		    
+		    display.unselect();
+		}
+		
 		System.out.println("waste clicked");
+	    
 	}
-
 	//precondition:  0 <= index < 4
 	//called when given foundation is clicked 
 	public void foundationClicked(int index)
