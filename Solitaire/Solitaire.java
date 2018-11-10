@@ -215,6 +215,6 @@ public class Solitaire
 		    piles[index].push(waste.pop());
 		    display.unselect();
 		}
-		System.out.println("pile #" + index + " clicked");
+		//System.out.println("pile #" + index + " clicked");
 	}
 }
