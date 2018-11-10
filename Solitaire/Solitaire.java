@@ -161,6 +161,21 @@ public class Solitaire
 	        stock.peek().turnDown();
 	    }
 	}
+	private boolean canAddToPile(Card card, int index)
+	{
+	    if(piles[index].isEmpty() && card.getRank() == 13)
+	    {
+	        return true;
+	    }
+	    Card pileTop = piles[index].peek();
+	    if(pileTop.isFaceUp() && ((pileTop.getRank() - card.getRank()) == 1) && (pileTop.isRed() != card.isRed()))
+	    {
+	        return true;
+	    }
+	    return false;
+	    
+	    
+	}
 	//called when the stock is clicked
 	public void stockClicked()
 	{
@@ -212,8 +227,16 @@ public class Solitaire
 	{
 		if(display.isWasteSelected())
 		{
-		    piles[index].push(waste.pop());
-		    display.unselect();
+		    if(canAddToPile(waste.peek(), index))
+		    {
+		        piles[index].push(waste.pop());
+	            display.unselect();
+		    }
+		    else
+		    {
+		        System.out.println("move not aloud");
+		    }
+		    
 		}
 		//System.out.println("pile #" + index + " clicked");
 	}
