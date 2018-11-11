@@ -303,7 +303,7 @@ public class Solitaire
         
         String cardSuit = card.getSuit();
         int cardRank = card.getRank();        
-        if((topRank - cardRank) == 1 && topSuit.equals(cardSuit))
+        if((topRank - cardRank) == -1 && topSuit.equals(cardSuit))
         {
             return true;
         }
