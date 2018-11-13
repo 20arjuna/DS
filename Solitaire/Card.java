@@ -78,235 +78,235 @@ public class Card
         isFaceUp = false;
     }
     /**
-     * Retrieves the path of the card on Arjun Akkiraju's macbook pro
-     * @return the path of the card on Arjun Akkiraju's macbook pro
+     * Retrieves the path of the card 
+     * @return the path of the card 
      */
     public String getFileName()
     {
         if(!this.isFaceUp())
         {
-            return "/Users/20arjuna/Desktop/DS/Solitaire/cards/back.gif";
+            return "cards/back.gif";
         }
-        String suit = this.getSuit();
-        int rank = this.getRank();
-        if(suit.equals("c"))
+        String s = this.getSuit();
+        int r = this.getRank();
+        if(s.equals("c"))
         {
-            if(rank == 1)
+            if(r == 1)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/ac.gif";
+                return "cards/ac.gif";
             }
-            if(rank == 2)
+            if(r == 2)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/2c.gif";
+                return "cards/2c.gif";
             }
-            if(rank == 3)
+            if(r == 3)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/3c.gif";
+                return "cards/3c.gif";
             }
-            if(rank == 4)
+            if(r == 4)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/4c.gif";
+                return "cards/4c.gif";
             }
-            if(rank == 5)
+            if(r == 5)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/5c.gif";
+                return "cards/5c.gif";
             }
-            if(rank == 6)
+            if(r == 6)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/6c.gif";
+                return "cards/6c.gif";
             }
-            if(rank == 7)
+            if(r == 7)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/7c.gif";
+                return "cards/7c.gif";
             }
-            if(rank == 8)
+            if(r == 8)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/8c.gif";
+                return "cards/8c.gif";
             }
-            if(rank == 9)
+            if(r == 9)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/9c.gif";
+                return "cards/9c.gif";
             }
-            if(rank == 10)
+            if(r == 10)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/tc.gif";
+                return "cards/tc.gif";
             }
-            if(rank == 11)
+            if(r == 11)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/jc.gif";
+                return "cards/jc.gif";
             }
-            if(rank == 12)
+            if(r == 12)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/qc.gif";
+                return "cards/qc.gif";
             }
-            if(rank == 13)
+            if(r == 13)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/kc.gif";
-            }
-        }
-        if(suit.equals("s"))
-        {
-            if(rank == 1)
-            {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/as.gif";
-            }
-            if(rank == 2)
-            {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/2s.gif";
-            }
-            if(rank == 3)
-            {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/3s.gif";
-            }
-            if(rank == 4)
-            {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/4s.gif";
-            }
-            if(rank == 5)
-            {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/5s.gif";
-            }
-            if(rank == 6)
-            {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/6s.gif";
-            }
-            if(rank == 7)
-            {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/7s.gif";
-            }
-            if(rank == 8)
-            {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/8s.gif";
-            }
-            if(rank == 9)
-            {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/9s.gif";
-            }
-            if(rank == 10)
-            {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/ts.gif";
-            }
-            if(rank == 11)
-            {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/js.gif";
-            }
-            if(rank == 12)
-            {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/qs.gif";
-            }
-            if(rank == 13)
-            {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/ks.gif";
+                return "cards/kc.gif";
             }
         }
-        if(suit.equals("h"))
+        if(s.equals("s"))
         {
-            if(rank == 1)
+            if(r == 1)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/ah.gif";
+                return "cards/as.gif";
             }
-            if(rank == 2)
+            if(r == 2)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/2h.gif";
+                return "cards/2s.gif";
             }
-            if(rank == 3)
+            if(r == 3)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/3h.gif";
+                return "cards/3s.gif";
             }
-            if(rank == 4)
+            if(r == 4)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/4h.gif";
+                return "cards/4s.gif";
             }
-            if(rank == 5)
+            if(r == 5)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/5h.gif";
+                return "cards/5s.gif";
             }
-            if(rank == 6)
+            if(r == 6)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/6h.gif";
+                return "cards/6s.gif";
             }
-            if(rank == 7)
+            if(r == 7)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/7h.gif";
+                return "cards/7s.gif";
             }
-            if(rank == 8)
+            if(r == 8)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/8h.gif";
+                return "cards/8s.gif";
             }
-            if(rank == 9)
+            if(r == 9)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/9h.gif";
+                return "cards/9s.gif";
             }
-            if(rank == 10)
+            if(r == 10)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/th.gif";
+                return "cards/ts.gif";
             }
-            if(rank == 11)
+            if(r == 11)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/jh.gif";
+                return "cards/js.gif";
             }
-            if(rank == 12)
+            if(r == 12)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/qh.gif";
+                return "cards/qs.gif";
             }
-            if(rank == 13)
+            if(r == 13)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/kh.gif";
+                return "cards/ks.gif";
             }
         }
-        if(suit.equals("d"))
+        if(s.equals("h"))
         {
-            if(rank == 1)
+            if(r == 1)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/ad.gif";
+                return "cards/ah.gif";
             }
-            if(rank == 2)
+            if(r == 2)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/2d.gif";
+                return "cards/2h.gif";
             }
-            if(rank == 3)
+            if(r == 3)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/3d.gif";
+                return "cards/3h.gif";
             }
-            if(rank == 4)
+            if(r == 4)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/4d.gif";
+                return "cards/4h.gif";
             }
-            if(rank == 5)
+            if(r == 5)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/5d.gif";
+                return "cards/5h.gif";
             }
-            if(rank == 6)
+            if(r == 6)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/6d.gif";
+                return "cards/6h.gif";
             }
-            if(rank == 7)
+            if(r == 7)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/7d.gif";
+                return "cards/7h.gif";
             }
-            if(rank == 8)
+            if(r == 8)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/8d.gif";
+                return "cards/8h.gif";
             }
-            if(rank == 9)
+            if(r == 9)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/9d.gif";
+                return "cards/9h.gif";
             }
-            if(rank == 10)
+            if(r == 10)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/td.gif";
+                return "cards/th.gif";
             }
-            if(rank == 11)
+            if(r == 11)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/jd.gif";
+                return "cards/jh.gif";
             }
-            if(rank == 12)
+            if(r == 12)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/qd.gif";
+                return "cards/qh.gif";
             }
-            if(rank == 13)
+            if(r == 13)
             {
-                return "/Users/20arjuna/Desktop/DS/Solitaire/cards/kd.gif";
+                return "cards/kh.gif";
+            }
+        }
+        if(s.equals("d"))
+        {
+            if(r == 1)
+            {
+                return "cards/ad.gif";
+            }
+            if(r == 2)
+            {
+                return "cards/2d.gif";
+            }
+            if(r == 3)
+            {
+                return "cards/3d.gif";
+            }
+            if(r == 4)
+            {
+                return "cards/4d.gif";
+            }
+            if(r == 5)
+            {
+                return "cards/5d.gif";
+            }
+            if(r == 6)
+            {
+                return "cards/6d.gif";
+            }
+            if(r == 7)
+            {
+                return "cards/7d.gif";
+            }
+            if(r == 8)
+            {
+                return "cards/8d.gif";
+            }
+            if(r == 9)
+            {
+                return "cards/9d.gif";
+            }
+            if(r == 10)
+            {
+                return "cards/td.gif";
+            }
+            if(r == 11)
+            {
+                return "cards/jd.gif";
+            }
+            if(r == 12)
+            {
+                return "cards/qd.gif";
+            }
+            if(r == 13)
+            {
+                return "cards/kd.gif";
             }
         }
         return null;
