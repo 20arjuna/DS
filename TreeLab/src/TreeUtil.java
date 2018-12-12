@@ -21,8 +21,11 @@ public class TreeUtil
 	 */
 	public static Object leftmost(TreeNode t)
 	{
-		// implement with a loop
-		throw new RuntimeException("Write ME!");
+		while(t.getLeft()!=null)
+		{
+		    t=t.getLeft();
+		}
+		return t;
 	}
 
 	/**
@@ -30,15 +33,19 @@ public class TreeUtil
 	 */
 	public static Object rightmost(TreeNode t)
 	{
-		// implement this recursively
-		throw new RuntimeException("Write ME!");
+		while(t.getRight()!=null)
+		{
+		    t=t.getRight();
+		}
+		return t;
 	}
 	/**
 	 *< Comment Me >
 	 */
 	public static int maxDepth(TreeNode t)
 	{
-		throw new RuntimeException("Write ME!"); 
+		int count = 0;
+		
 	}
 
 	/**
