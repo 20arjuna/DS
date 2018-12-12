@@ -251,7 +251,7 @@ public class Solitaire
             return true;
         }
         return false;
-
+   
     }
 
     /**
