@@ -7,13 +7,17 @@ public class BinaryTreeTester
 {
     public void test()
     {
-	    TreeDisplay display = new TreeDisplay();
+        TreeNode tree = TreeUtil.createRandom(6);
+        TreeDisplay display = new TreeDisplay();
+        display.displayTree(tree);
+        
+        /*TreeDisplay display = new TreeDisplay();
         // to get the display to send back the values when it visits a node:
         display.setTester(this);
         // test to see that the call back works
         TreeNode t = TreeUtil.createRandom(6);
         display.displayTree(t);
-        TreeUtil.preOrder(t, display);
+        TreeUtil.preOrder(t, display);*/
     }
     /**
     * called by the display object to send back the node value

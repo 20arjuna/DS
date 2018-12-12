@@ -23,6 +23,7 @@ public class TreeUtil
 	{
 		while(t.getLeft()!=null)
 		{
+		    
 		    t=t.getLeft();
 		}
 		return t;
@@ -35,6 +36,7 @@ public class TreeUtil
 	{
 		while(t.getRight()!=null)
 		{
+		    
 		    t=t.getRight();
 		}
 		return t;
@@ -44,7 +46,11 @@ public class TreeUtil
 	 */
 	public static int maxDepth(TreeNode t)
 	{
-		int count = 0;
+		if (t==null)
+		{
+		    return 0;
+		}
+		return 1 +Math.max(maxDepth(t.getLeft()), maxDepth(t.getRight()));
 		
 	}
 
@@ -67,7 +73,7 @@ public class TreeUtil
 	 */
 	public static int countNodes(TreeNode t)
 	{
-		throw new RuntimeException("Write ME!");
+	    throw new RuntimeException("Write ME!");
 	}
 	/**
 	 *< Comment Me >
