@@ -160,7 +160,22 @@ public class TreeUtil
 	 */
 	public static void fillList(TreeNode t, List<String> list)
 	{
-		throw new RuntimeException("Write ME!");
+		if(t == null)
+		{
+		    list.add("$");
+		    return;
+		}
+		if(t.getLeft() == null && t.getRight() == null)
+		{
+		    list.add(t.getValue().toString());
+		    list.add("$");
+		    list.add("$");
+		    return;
+		}
+		list.add(t.getValue().toString());
+		fillList(t.getLeft(), list);
+		fillList(t.getRight(), list);
+		
 	}
 	/**
 	 * saveTree uses the FileUtil utility class to save the tree rooted at t
@@ -171,7 +186,10 @@ public class TreeUtil
 	 */
 	public static void saveTree(String fileName, TreeNode t)
 	{
-		throw new RuntimeException("Write ME!");
+		ArrayList<String> data = new ArrayList<String>();
+		fillList(t, data);
+		Iterator<String> it = data.iterator();
+		FileUtil.saveFile(fileName, it);
 	}
 	/**
 	 * buildTree takes in an iterator which will iterate through a valid description of
@@ -181,7 +199,20 @@ public class TreeUtil
 	 */
 	public static TreeNode buildTree(Iterator<String> it)
 	{
-		throw new RuntimeException("Write ME!");
+		TreeNode tree = new TreeNode(it.next());
+		while(it.hasNext())
+		{
+		    String temp = it.next();
+		    if(temp.equals("$"))
+		    {
+		        tree.setRight(new TreeNode(it.next()));
+		    }
+		    else
+		    {
+		        tree.setLeft(new TreeNode(temp));
+		    }
+		}
+		return tree;
 
 	}
 	/**
