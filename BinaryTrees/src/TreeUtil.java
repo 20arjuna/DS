@@ -21,11 +21,17 @@ public class TreeUtil
 	 */
 	public static Object leftmost(TreeNode t)
 	{
-		while(t.getLeft().getLeft() != null)
-		{
-		    t=t.getLeft();
-		}
-		return t.getLeft().getValue();
+	    if(t==null)
+	    {
+	        return null;
+	    }
+	    if(t.getLeft()==null)
+	    {
+	       return t.getValue();
+	    }
+	    return leftmost(t.getLeft());
+	    
+	    
 	}
 
 	/**
@@ -33,27 +39,36 @@ public class TreeUtil
 	 */
 	public static Object rightmost(TreeNode t)
 	{
-	    while(t.getRight().getRight() != null)
+	    if(t==null)
         {
-            t=t.getRight();
+            return null;
         }
-        return t.getRight().getValue();
+        if(t.getRight()==null)
+        {
+           return t.getValue();
+        }
+        return rightmost(t.getRight());
 	}
 	/**
 	 *< Comment Me >
 	 */
 	public static int maxDepth(TreeNode t)
 	{
-		if(t.getLeft() == null && t.getRight() == null)
-		{
-		    return 1;
-		}
-		else
-		{
-		    int left = maxDepth(t.getLeft());
-		    int right = maxDepth(t.getRight());
-		    return Math.max(left, right);
-		}
+	    if(t == null)
+	    {
+	        return 0;
+	    }
+	    else
+	    {
+	        int lDepth = maxDepth(t.getLeft()); 
+            int rDepth = maxDepth(t.getRight());
+            
+            if (lDepth > rDepth) 
+                return (lDepth+1); 
+             else 
+                return (rDepth+1);
+	    }
+		
 	}
 
 	/**
@@ -75,35 +90,70 @@ public class TreeUtil
 	 */
 	public static int countNodes(TreeNode t)
 	{
-		throw new RuntimeException("Write ME!");
+	    if(t==null)
+	    {
+	        return 0;
+	    }
+		if(t.getLeft()==null && t.getRight()==null)
+		{
+		    return 1;
+		}
+		return 1+ countNodes(t.getLeft())+countNodes(t.getRight());
 	}
 	/**
 	 *< Comment Me >
 	 */
 	public static int countLeaves(TreeNode t)
 	{
-		throw new RuntimeException("Write ME!");
+	    if(t==null)
+        {
+            return 0;
+        }
+        if(t.getLeft()==null && t.getRight()==null)
+        {
+            return 1;
+        }
+        return countLeaves(t.getLeft())+countLeaves(t.getRight());
+		
 	}
 	/**
 	 *< Comment Me >
 	 */
 	public static void preOrder(TreeNode t, TreeDisplay display)
 	{
-		throw new RuntimeException("Write ME!");
+	    if(t==null)
+	    {
+	        return;
+	    }
+		display.visit(t);
+		preOrder(t.getLeft(), display);
+		preOrder(t.getRight(), display);
 	}
     /**
      *< Comment Me >
      */
 	public static void inOrder(TreeNode t, TreeDisplay display)
 	{
-		throw new RuntimeException("Write ME!");
+	    if(t==null)
+        {
+            return;
+        }
+        inOrder(t.getLeft(), display);
+        display.visit(t);
+        inOrder(t.getRight(), display);
 	}
     /**
      *< Comment Me >
      */
 	public static void postOrder(TreeNode t, TreeDisplay display)
 	{
-		throw new RuntimeException("Write ME!"); 
+	    if(t==null)
+        {
+            return;
+        }
+        postOrder(t.getLeft(), display);
+        postOrder(t.getRight(), display);
+        display.visit(t);
 	}
 	/**
 	 *< Comment Me >
