@@ -21,14 +21,8 @@ public class TreeUtil
 	 */
 	public static Object leftmost(TreeNode t)
 	{
-	    if(t == null)
-	        return null;
-		while(t.getLeft()!=null)
-		{
-		    
-		    t=t.getLeft();
-		}
-		return t.getValue();
+		// implement with a loop
+		throw new RuntimeException("Write ME!");
 	}
 
 	/**
@@ -36,27 +30,15 @@ public class TreeUtil
 	 */
 	public static Object rightmost(TreeNode t)
 	{
-	    if (t==null)
-	        return null;
-		while(t.getRight()!=null)
-		{
-		    
-		    t=t.getRight();
-		}
-		return t.getValue();
+		// implement this recursively
+		throw new RuntimeException("Write ME!");
 	}
 	/**
 	 *< Comment Me >
 	 */
 	public static int maxDepth(TreeNode t)
 	{
-	    return 0;
-		/*if (t==null)
-		{
-		    return 0;
-		}
-		return Math.max(maxDepth(t.getLeft()), maxDepth(t.getRight()));*/
-		
+		throw new RuntimeException("Write ME!"); 
 	}
 
 	/**
@@ -78,52 +60,42 @@ public class TreeUtil
 	 */
 	public static int countNodes(TreeNode t)
 	{
-	   if(t==null)
-	   {
-	       return 0;
-	   }
-	    return 1+ countNodes(t.getLeft()) + countNodes(t.getRight());
-	    
+		throw new RuntimeException("Write ME!");
 	}
 	/**
 	 *< Comment Me >
 	 */
 	public static int countLeaves(TreeNode t)
 	{
-	    int count = 0;
-		if(t.getLeft() == null && t.getRight() == null)
-		{
-		    return 1;
-		}
-		return(TreeUtil.countLeaves(t.getLeft()) + TreeUtil.countLeaves(t.getRight()));
+		throw new RuntimeException("Write ME!");
 	}
 	/**
 	 *< Comment Me >
 	 */
 	public static void preOrder(TreeNode t, TreeDisplay display)
 	{
-		return;
+		throw new RuntimeException("Write ME!");
 	}
     /**
      *< Comment Me >
      */
 	public static void inOrder(TreeNode t, TreeDisplay display)
 	{
-		return;
+		throw new RuntimeException("Write ME!");
 	}
     /**
      *< Comment Me >
      */
 	public static void postOrder(TreeNode t, TreeDisplay display)
 	{
-		return;
+		throw new RuntimeException("Write ME!"); 
 	}
 	/**
 	 *< Comment Me >
 	 */
 	public static void fillList(TreeNode t, List<String> list)
 	{
-		return;
+		throw new RuntimeException("Write ME!");
 	}
 	/**
 	 * saveTree uses the FileUtil utility class to save the tree rooted at t
@@ -134,7 +106,7 @@ public class TreeUtil
 	 */
 	public static void saveTree(String fileName, TreeNode t)
 	{
-		return;
+		throw new RuntimeException("Write ME!");
 	}
 	/**
 	 * buildTree takes in an iterator which will iterate through a valid description of
@@ -144,7 +116,7 @@ public class TreeUtil
 	 */
 	public static TreeNode buildTree(Iterator<String> it)
 	{
-		return new TreeNode("f");
+		throw new RuntimeException("Write ME!");
 
 	}
 	/**
@@ -154,7 +126,7 @@ public class TreeUtil
 	 */
 	public static TreeNode loadTree(String fileName)
 	{
-	    return new TreeNode("f");
+		throw new RuntimeException("Write ME!");
 	}
 	/**
 	 * utility method that waits for a user to type text into Std Input and then press enter
@@ -174,7 +146,7 @@ public class TreeUtil
 	 */
 	private static void twentyQuestionsRound(TreeNode t, TreeDisplay display)
 	{	
-		return;
+		throw new RuntimeException("Write ME!");
 	}
 	/** 
 	 * plays a game of 20 questions
@@ -183,7 +155,7 @@ public class TreeUtil
 	 */
 	public static void twentyQuestions()
 	{
-		return;
+		throw new RuntimeException("Write ME!");
 	}
 	/**
 	 * copy a binary tree
@@ -194,7 +166,7 @@ public class TreeUtil
 	 */
 	public static TreeNode copy(TreeNode t)
 	{
-	    return new TreeNode("f");
+		throw new RuntimeException("Write ME!");	
 	}
 	
 	/**
@@ -207,7 +179,7 @@ public class TreeUtil
 	 */
 	public static boolean sameShape(TreeNode t1, TreeNode t2)
 	{
-		return false;
+		throw new RuntimeException("Write ME!");
 	}
 	/**
 	 * Generate a tree for decoding Morse code
@@ -262,7 +234,7 @@ public class TreeUtil
 									String code, TreeDisplay display)
 	{
 
-		return;     
+		throw new RuntimeException("Write ME!");		             
 	}
 	/**
 	 * decodes Morse code by walking the decoding tree according to the input code
@@ -273,21 +245,21 @@ public class TreeUtil
 	 */
 	public static String decodeMorse(TreeNode decodingTree, String cipherText, TreeDisplay display)
 	{
-		return "h";
+		throw new RuntimeException("Write ME!");
 	}
 	/**
 	* optional work
 	*/
 	public static int eval(TreeNode expTree)
 	{
-		return 3;
+		throw new RuntimeException("Write ME!");
 	}
 	/**
 	* optional work
 	*/
 	public static TreeNode createExpressionTree(String exp)
 	{
-	    return new TreeNode("f");
+		throw new RuntimeException("Write ME!");
 	}
 
 	/**
@@ -298,7 +270,7 @@ public class TreeUtil
 	
 	private static void debugPrint(String out)
 	{
-	    return;
+	    if(debug) System.out.println("debug: " + out);
 	}
 }
 	

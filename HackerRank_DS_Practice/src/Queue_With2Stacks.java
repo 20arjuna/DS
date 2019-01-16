@@ -12,7 +12,6 @@ public class Queue_With2Stacks
         ArrayList<String> queueFunctions = new ArrayList<String>();
         while(sc.hasNext())
         {
-            String x = "hello";j
             String temp = sc.nextLine();
             
             if(temp.substring(0,1).equals("1"))
