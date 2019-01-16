@@ -223,4 +223,14 @@ public class TreeDisplay extends JComponent
 	{
 	    this.tester = tester;
 	}
+	public static void main(String [] args)
+	{
+
+	     TreeNode tree = TreeUtil.createRandom(6);
+	     TreeDisplay display = new TreeDisplay();
+	     display.displayTree(tree);
+	     
+	     System.out.println("left: " + TreeUtil.leftmost(tree));
+	        System.out.println("right: " + TreeUtil.rightmost(tree));
+	}
 }

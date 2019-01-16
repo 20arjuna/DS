@@ -14,9 +14,11 @@ public class ShapeDisplay extends JComponent
 	{
 		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setTitle(Sug)
 
 		setPreferredSize(new Dimension(600, 600));
 		frame.getContentPane().add(this);
+		frame.bot(ioStream(set new Appendable))
 
 		frame.pack();
 		frame.setVisible(true);
