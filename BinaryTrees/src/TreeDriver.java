@@ -4,7 +4,8 @@ public class TreeDriver
 
     public static void main(String[] args)
     {
-        TreeNode tree = TreeUtil.createRandom(4);
+        //TreeNode tree = TreeUtil.createRandom(4);
+        TreeNode tree = TreeUtil.loadTree("test.txt");
         TreeDisplay display = new TreeDisplay();
         display.displayTree(tree);
         List<String> list = new ArrayList<String>();
@@ -36,7 +37,8 @@ public class TreeDriver
         //TreeUtil.fillList(tree, list);
         //System.out.println(list);
         
-        TreeUtil.saveTree("test.txt", tree);
+        //TreeUtil.saveTree("test.txt", tree);
+        
 
     }
 

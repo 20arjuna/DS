@@ -199,20 +199,21 @@ public class TreeUtil
 	 */
 	public static TreeNode buildTree(Iterator<String> it)
 	{
-		TreeNode tree = new TreeNode(it.next());
-		while(it.hasNext())
-		{
-		    String temp = it.next();
-		    if(temp.equals("$"))
-		    {
-		        tree.setRight(new TreeNode(it.next()));
-		    }
-		    else
-		    {
-		        tree.setLeft(new TreeNode(temp));
-		    }
-		}
-		return tree;
+	    TreeNode tree = new TreeNode(it.next());
+        while(it.hasNext())
+        {
+            String temp = it.next();
+            if(temp.equals("$"))
+            {
+                tree.setRight(new TreeNode(it.next()));
+            }
+            else
+            {  
+                tree.setLeft(new TreeNode(temp));
+            }
+        }
+        return tree;
+	    
 
 	}
 	/**
@@ -222,7 +223,9 @@ public class TreeUtil
 	 */
 	public static TreeNode loadTree(String fileName)
 	{
-		throw new RuntimeException("Write ME!");
+		Iterator<String> it = FileUtil.loadFile(fileName);
+		TreeNode tree = buildTree(it);
+		return tree; 
 	}
 	/**
 	 * utility method that waits for a user to type text into Std Input and then press enter
@@ -242,7 +245,7 @@ public class TreeUtil
 	 */
 	private static void twentyQuestionsRound(TreeNode t, TreeDisplay display)
 	{	
-		throw new RuntimeException("Write ME!");
+		System.out.println("Twenty Questions round ");
 	}
 	/** 
 	 * plays a game of 20 questions
@@ -262,7 +265,11 @@ public class TreeUtil
 	 */
 	public static TreeNode copy(TreeNode t)
 	{
-		throw new RuntimeException("Write ME!");	
+		TreeUtil.saveTree("test.txt", t);
+		Iterator<String> it = FileUtil.loadFile("test.txt");
+		return TreeUtil.buildTree(it);
+		 
+		 
 	}
 	
 	/**
@@ -275,7 +282,19 @@ public class TreeUtil
 	 */
 	public static boolean sameShape(TreeNode t1, TreeNode t2)
 	{
-		throw new RuntimeException("Write ME!");
+		if(t1 == null && t2 == null)
+		{
+		    return true;
+		}
+		if((t1 == null && t2!= null) || (t1!=null && t2==null))
+		{
+		    return false;
+		}
+		if(sameShape(t1.getLeft(), t2.getLeft()) && sameShape(t1.getRight(), t2.getRight()))
+		{
+		    return true;
+		}
+		return false;
 	}
 	/**
 	 * Generate a tree for decoding Morse code
@@ -329,8 +348,25 @@ public class TreeUtil
 	private static void insertMorse(TreeNode decodingTree, String letter,
 									String code, TreeDisplay display)
 	{
-
-		throw new RuntimeException("Write ME!");		             
+	        if(code.equals("-"))
+	        {
+	            display.visit(decodingTree.getLeft());
+	            decodingTree.setLeft(new TreeNode(letter));
+	        }
+	        if(code.equals("."))
+            {
+                display.visit(decodingTree.getRight());
+                decodingTree.setRight(new TreeNode(letter));
+            }
+	        if(code.substring(0, 1).equals("-"))
+		    {
+		        insertMorse(decodingTree.getLeft(), letter, code.substring(1), display);
+		    }
+	        else if(code.substring(0,1).equals("."))
+	        {
+	            insertMorse(decodingTree.getRight(), letter, code.substring(1), display);
+	        }
+		
 	}
 	/**
 	 * decodes Morse code by walking the decoding tree according to the input code
@@ -341,7 +377,29 @@ public class TreeUtil
 	 */
 	public static String decodeMorse(TreeNode decodingTree, String cipherText, TreeDisplay display)
 	{
-		throw new RuntimeException("Write ME!");
+		if(decodingTree == null)
+		{
+		    return "";
+		}
+		if(cipherText.equals("-"))
+		{
+		    display.visit(decodingTree.getLeft());
+		    return (String) decodingTree.getLeft().getValue();
+		}
+		if(cipherText.equals("."))
+        {
+		    display.visit(decodingTree.getRight());
+            return (String) decodingTree.getRight().getValue();
+        }
+		if(cipherText.substring(0, 1).equals("-"))
+        {
+            decodeMorse(decodingTree.getLeft(), cipherText.substring(1), display);
+        }
+		else if(cipherText.substring(0, 1).equals("."))
+        {
+            decodeMorse(decodingTree.getRight(), cipherText.substring(1), display);
+        }
+		return "";
 	}
 	/**
 	* optional work
