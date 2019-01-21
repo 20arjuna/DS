@@ -1,9 +1,23 @@
-//a collection of static methods for operating on binary search trees
+/**
+ * A class which is used to perform basic functions on binary search trees
+ * @author Arjun Akkiraju
+ * @version 1.21.19
+ *
+ */
 public abstract class BSTUtilities
 {
-	//precondition:  t is a binary search tree in ascending order
-	//postcondition: returns true if t contains the value x;
-	//               otherwise, returns false
+	/**
+	 * Checks whether a specified value is present in
+	 * the given binary search tree
+	 * @param t the Binary Search Tree
+	 * @param x the object being checked
+	 * @param display the display where the bst is displayed
+	 * @precondition t is a binary search tree in ascending order
+	 * @postcondition returns true if t contains the value x;
+ 	 *               otherwise, returns false
+	 * @return  the value of the leftmost node of a binary tree.
+	 */
+
 	public static boolean contains(TreeNode t, Comparable x, TreeDisplay display)
 	{
 		if(x.compareTo(t.getValue()) == 0)
@@ -20,14 +34,20 @@ public abstract class BSTUtilities
 		}
 		return false;
 	}
-
-	//precondition:  t is a binary search tree in ascending order
-	//postcondition: if t is empty, returns a new tree containing x;
-	//               otherwise, returns t, with x having been inserted
-	//               at the appropriate position to maintain the binary
-	//               search tree property; x is ignored if it is a
-	//               duplicate of an element already in t; only one new
-	//               TreeNode is created in the course of the traversal
+	/**
+	 * Inserts the given value into the given binary search tree
+	 * @param t the Binary Search Tree
+	 * @param x the object being checked
+	 * @param display the display where the bst is displayed
+	 * @precondition t is a binary search tree in ascending order
+	 * @postcondition if t is empty, returns a new tree containing x;
+ 	 *              otherwise, returns t, with x having been inserted
+ 	 *               at the appropriate position to maintain the binary
+ 	 *              search tree property; x is ignored if it is a
+ 	 *               duplicate of an element already in t; only one new
+ 	 *               TreeNode is created in the course of the traversal
+	 * @return  the value of the leftmost node of a binary tree.
+	 */
 	public static TreeNode insert(TreeNode t, Comparable x, TreeDisplay display)
 	{
 		if (t == null) {
@@ -35,63 +55,66 @@ public abstract class BSTUtilities
             return root;
         }
 
-        /* Otherwise, recur down the tree */
+
         if (x.compareTo(t.getValue()) < 0)
-            t.getLeft() = insert(t.getLeft(), x, display);
+            t.setLeft(insert(t.getLeft(), x, display));
         else if (x.compareTo(t.getValue()) > 0)
-            t.getRight() = insert(t.getLeft(), x, display);
+            t.setRight(insert(t.getLeft(), x, display));
 				else if (x.compareTo(t.getValue()) == 0)
 				{
 					return t;
 				}
-
-        /* return the (unchanged) node pointer */
         return t;
 	}
-
-	//precondition:  t is a binary search tree in ascending order
-	//postcondition: returns a pointer to a binary search tree,
-	//               in which the value at node t has been deleted
-	//               (and no new TreeNodes have been created)
+	/**
+	 * Helper method for the delete method. deleteNode
+	 * deletes the root node of a specified tree.
+	 * @param t the Binary Search Tree
+	 * @param x the object being checked
+	 * @param display the display where the bst is displayed
+	 * @precondition t is a binary search tree in ascending order
+	 * @postcondition returns a pointer to a binary search tree,
+ 	 *               in which the value at node t has been deleted
+ 	 *               (and no new TreeNodes have been created)
+	 * @return  the value of the leftmost node of a binary tree.
+	 */
 	private static TreeNode deleteNode(TreeNode t, TreeDisplay display)
 	{
 		/* Base Case: If the tree is empty */
         if (t == null)
 				{
-
+					return null;
 				}
 
-        /* Otherwise, recur down the tree */
-        if (x.compareTo(t.getLeft()) < 0) 
-            root.left = deleteRec(root.left, key);
-        else if (key > root.key)
-            root.right = deleteRec(root.right, key);
 
-        // if key is same as root's key, then This is the node
-        // to be deleted
+        if (x.compareTo(t.getLeft()) < 0)
+            t.setLeft(deleteNode(t.getLeft(), display));
+        else if (x.compareTo(t.getRight()) > 0)
+            t.setRight(deleteNode(t.getRight(), display));
+
+
         else
         {
-            // node with only one child or no child
-            if (root.left == null)
-                return root.right;
-            else if (root.right == null)
-                return root.left;
 
-            // node with two children: Get the inorder successor (smallest
-            // in the right subtree)
-            root.key = minValue(root.right);
-
-            // Delete the inorder successor
-            root.right = deleteRec(root.right, root.key);
+            if (t.getLeft() == null)
+                return t.getRight();
+            else if (t.getRight() == null)
+                return t.getLeft();
         }
 
-        return root;
+        return t;
 	}
-
-	//precondition:  t is a binary search tree in ascending order
-	//postcondition: returns a pointer to a binary search tree,
-	//               in which the value x has been deleted (if present)
-	//               (and no new TreeNodes have been created)
+	/**
+	 * Deletes the given value from the binary search tree.
+	 * @param t the Binary Search Tree
+	 * @param x the object being checked
+	 * @param display the display where the bst is displayed
+	 * @precondition t is a binary search tree in ascending order
+	 * @postcondition returns a pointer to a binary search tree,
+ 	 *               in which the value x has been deleted (if present)
+ 	 *               (and no new TreeNodes have been created)
+	 * @return  the value of the leftmost node of a binary tree.
+	 */
 	public static TreeNode delete(TreeNode t, Comparable x, TreeDisplay display)
 	{
 		if(x.compareTo(t.getValue()) == 0)
