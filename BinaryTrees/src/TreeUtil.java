@@ -2,9 +2,24 @@ import java.util.*;
 /**
  * TreeUtil contains the following methods for manipulating binary trees:
  * 1. leftmost(TreeNode) - gets the leftmost node in a binary tree
- * 2. 
- * @author 
- * @version
+ * 2. rightmost(TreeNode) - gets the rightmost node in a binary tree
+ * 3. maxDepth(TreeNode) - gets the maximum depth of the binary tree
+ * 4. createRandom(int) - creates a random binary tree with a specified depth
+ * 5. countNodes(TreeNode) - counts the nodes on a binary tree
+ * 6. countLeaves(TreeNode) - counts the leaves on a binary tree
+ * 7. preOrder(TreeNode) - traverses the tree in preorder.
+ * 8. inOrder(TreeNode) - traverses the tree in inorder.
+ * 9. postOrder(TreeNode) - traverses the tree in postorder.
+ * 10. fillList(TreeNode, List<String>) - fills a list of strings with the objects stored in the binary tree
+ * 11. saveTree(String, TreeNode) - Saves the contents of a binary tree to a file of a given name. 
+ * 12. buildTree(Iterator<String>) - builds a binary tree given a string iterator with the tree’s contents. 
+ * 13. loadTree(String) - loads a filename and returns a binary tree from the contents of the given file. 
+ * 14. copy(TreeNode) - copies a given binary tree
+ * 15. sameShape(TreeNode, TreeNode) - checks if two binary trees are copies of each other. 
+ * 16. insertMorse(TreeNode, String, String, display) - inserts a given letter to a morse tree on a given display. 
+ * 17. decodeMorse(TreeNode, String, TreeDisplay) - returns the English equivalent of ciphered text given a decoding binary tree). 
+ * @author Arjun Akkiraju
+ * @version 1.21.19
  *
  */
 public class TreeUtil
