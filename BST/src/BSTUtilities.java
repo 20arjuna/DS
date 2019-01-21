@@ -55,7 +55,37 @@ public abstract class BSTUtilities
 	//               (and no new TreeNodes have been created)
 	private static TreeNode deleteNode(TreeNode t, TreeDisplay display)
 	{
-		throw new RuntimeException("IMPLEMENT ME!!!");
+		/* Base Case: If the tree is empty */
+        if (t == null)
+				{
+
+				}
+
+        /* Otherwise, recur down the tree */
+        if (x.compareTo(t.getLeft()) < 0) 
+            root.left = deleteRec(root.left, key);
+        else if (key > root.key)
+            root.right = deleteRec(root.right, key);
+
+        // if key is same as root's key, then This is the node
+        // to be deleted
+        else
+        {
+            // node with only one child or no child
+            if (root.left == null)
+                return root.right;
+            else if (root.right == null)
+                return root.left;
+
+            // node with two children: Get the inorder successor (smallest
+            // in the right subtree)
+            root.key = minValue(root.right);
+
+            // Delete the inorder successor
+            root.right = deleteRec(root.right, root.key);
+        }
+
+        return root;
 	}
 
 	//precondition:  t is a binary search tree in ascending order
@@ -64,6 +94,18 @@ public abstract class BSTUtilities
 	//               (and no new TreeNodes have been created)
 	public static TreeNode delete(TreeNode t, Comparable x, TreeDisplay display)
 	{
-		throw new RuntimeException("IMPLEMENT ME!!!");
+		if(x.compareTo(t.getValue()) == 0)
+		{
+			deleteNode(t, display);
+		}
+		else if(x.compareTo(t.getValue()) < 0)
+		{
+			delete(t.getLeft(), x, display);
+		}
+		else if(x.compareTo(t.getValue()) > 0)
+		{
+			delete(t.getRight(), x, display);
+		}
+		return t;
 	}
 }
