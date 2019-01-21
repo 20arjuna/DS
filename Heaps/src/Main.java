@@ -11,7 +11,7 @@ public class Main
     /**
      * Used for testing out the HeapsUtil
      * class.
-     * @param args Arguments from the commandline
+     * @param args Arguments from the command line
      */
     public static void main(String[] args)
     {
