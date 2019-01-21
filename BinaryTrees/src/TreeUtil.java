@@ -146,7 +146,7 @@ public class TreeUtil
 	 * Traverses the tree in preOrder, meaning it visits the root first,
 	 * then the left subtree, then the right subtree.
 	 * @param t - The binary tree
-	 * @param displya - The display where the tree is displayed.
+	 * @param display - The display where the tree is displayed.
 	 */
 	public static void preOrder(TreeNode t, TreeDisplay display)
 	{
@@ -159,7 +159,10 @@ public class TreeUtil
 		preOrder(t.getRight(), display);
 	}
     /**
-     *< Comment Me >
+     * Traverses the tree in inOrder, meaning it visits the left subtree first,
+     * then root, then the right subtree.
+     * @param t - The binary tree
+     * @param display - The display where the tree is displayed.
      */
 	public static void inOrder(TreeNode t, TreeDisplay display)
 	{
@@ -172,7 +175,10 @@ public class TreeUtil
         inOrder(t.getRight(), display);
 	}
     /**
-     *< Comment Me >
+     * Traverses the tree in postOrder, meaning it visits the left subtree first,
+     * then the right subtree, then the root.
+     * @param t - The binary tree
+     * @param display - The display where the tree is displayed.
      */
 	public static void postOrder(TreeNode t, TreeDisplay display)
 	{
@@ -185,7 +191,9 @@ public class TreeUtil
         display.visit(t);
 	}
 	/**
-	 *< Comment Me >
+	 * Fills a given list with the contents of a binary tree.
+	 * @param t - The binary tree
+	 * @param list - the list where the contents will be stored. 
 	 */
 	public static void fillList(TreeNode t, List<String> list)
 	{
