@@ -1,7 +1,18 @@
-
+/**
+ * Driver class for the HeapsUtil class.
+ * This class is used to run/test all operations
+ * created in the HeapsUtil class.
+ * @author Arjun Akkiraju
+ * @version 1.21.19
+ *
+ */
 public class Main
 {
-
+    /**
+     * Used for testing out the HeapsUtil
+     * class.
+     * @param args Arguments from the commandline
+     */
     public static void main(String[] args)
     {
        Integer [] intObjs = new Integer [12];
