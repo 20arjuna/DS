@@ -31,9 +31,9 @@ public class TreeUtil
 
 
 	/**
-	 *< Comment Me >
-	 * @param 
-	 * @return 
+	 * Returns the value of the leftmost node of a binary tree.
+	 * @param t the Binary Tree
+	 * @return  the value of the leftmost node of a binary tree.
 	 */
 	public static Object leftmost(TreeNode t)
 	{
@@ -51,7 +51,9 @@ public class TreeUtil
 	}
 
 	/**
-	 *< Comment Me >
+	 * Returns the value of the rightmost node of a binary tree.
+     * @param t the Binary Tree
+     * @return  the value of the rightmost node of a binary tree.
 	 */
 	public static Object rightmost(TreeNode t)
 	{
@@ -66,7 +68,11 @@ public class TreeUtil
         return rightmost(t.getRight());
 	}
 	/**
-	 *< Comment Me >
+	 * Returns the maximum depth contained in the binary tree. Depth is the number
+	 * of edges between a leaf node and a root node.
+	 * 
+	 * @param t the Binary Tree
+	 * @return the maximum depth contained in the binary tree.
 	 */
 	public static int maxDepth(TreeNode t)
 	{
@@ -90,7 +96,7 @@ public class TreeUtil
 	/**
 	 * create a random tree of the specified depth.  No attempt to balance the tree
 	 * is provided.
-	 * @param depth of the tree
+	 * @param depth - depth of the tree
 	 * @return TreeNode object that points to the generated tree
 	 */
 	public static TreeNode createRandom(int depth)
@@ -102,7 +108,9 @@ public class TreeUtil
 			createRandom(depth - 1));
 	}
 	/**
-	 *< Comment Me >
+	 * Counts the number of nodes in a binary tree.
+	 * @param t the binary tree.
+	 * @return the number of nodes in the binary tree.
 	 */
 	public static int countNodes(TreeNode t)
 	{
@@ -117,7 +125,9 @@ public class TreeUtil
 		return 1+ countNodes(t.getLeft())+countNodes(t.getRight());
 	}
 	/**
-	 *< Comment Me >
+	 * Counts the number of leaves in a binary tree. A leaf is a binary tree without children. 
+     * @param t the binary tree.
+     * @return the number of leaves in the binary tree.
 	 */
 	public static int countLeaves(TreeNode t)
 	{
@@ -133,7 +143,10 @@ public class TreeUtil
 		
 	}
 	/**
-	 *< Comment Me >
+	 * Traverses the tree in preOrder, meaning it visits the root first,
+	 * then the left subtree, then the right subtree.
+	 * @param t - The binary tree
+	 * @param displya - The display where the tree is displayed.
 	 */
 	public static void preOrder(TreeNode t, TreeDisplay display)
 	{
