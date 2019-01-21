@@ -21,7 +21,7 @@ public class Main
            intObjs[i] = (int) ((Math.random() * 99) + 1);
        }
        HeapDisplay display = new HeapDisplay();
-       display.displayHeap(intObjs, 11\);
+       display.displayHeap(intObjs, 11);
        for(int x = 0; x < intObjs.length; x++)
        {
            System.out.println(intObjs[x]);
