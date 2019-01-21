@@ -1,7 +1,8 @@
 import java.util.*;
 /**
  * TreeUtil contains the following methods for manipulating binary trees:
- * < put in your list of methods here>
+ * 1. leftmost(TreeNode) - gets the leftmost node in a binary tree
+ * 2. 
  * @author 
  * @version
  *
